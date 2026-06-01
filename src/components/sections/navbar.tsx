@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -33,15 +34,18 @@ export function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <a href="#" className="group flex items-center gap-2">
-            <div className="w-10 h-10 bg-navy rounded-full flex items-center justify-center group-hover:bg-gold transition-colors duration-300">
-              <span className="text-cream font-bold text-sm">RC</span>
-            </div>
-            <span className="text-lg font-bold text-navy font-serif hidden sm:block">
-              Art <span className="text-gold">Circle</span>
-            </span>
-          </a>
+          {/* Logo (image from public/logo.png) */}
+          <Link href="/" className="group flex items-center gap-3">
+            <Image
+              src="/logo.png"
+              alt="Royal College Art Circle"
+              width={160}
+              height={40}
+              className="h-10 w-auto object-contain"
+              priority
+            />
+            <span className="sr-only">Royal College Art Circle</span>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">

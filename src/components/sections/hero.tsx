@@ -138,7 +138,7 @@ export function Hero() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <AnimatedCounter end={45} label="Completed" />
+                <AnimatedCounter end={1} label="Completed" />
               </div>
             </div>
             <div className="group">
@@ -148,7 +148,7 @@ export function Hero() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <AnimatedCounter end={12} label="Ongoing" />
+                <AnimatedCounter end={2} label="Ongoing" />
               </div>
             </div>
             <div className="group">
@@ -158,7 +158,7 @@ export function Hero() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <AnimatedCounter end={8} label="Upcoming" />
+                <AnimatedCounter end={3} label="Upcoming" />
               </div>
             </div>
           </div>

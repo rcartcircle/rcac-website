@@ -8,7 +8,7 @@ interface AnimatedCounterProps {
   label: string
 }
 
-export function AnimatedCounter({ end, duration = 2000, label }: AnimatedCounterProps) {
+export function AnimatedCounter({ end, duration = 500, label }: AnimatedCounterProps) {
   const [count, setCount] = useState(0)
   const countRef = useRef<HTMLDivElement>(null)
   const hasAnimated = useRef(false)

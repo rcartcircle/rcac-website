@@ -45,18 +45,16 @@ export function About() {
           {/* Description */}
           <div className={`space-y-6 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
             <p className="text-lg text-navy/70 leading-relaxed">
-              The Royal College Art Circle is a vibrant community of passionate artists, 
-              designers, and creative minds dedicated to pushing the boundaries of artistic expression. 
-              Founded with the vision of nurturing young talents, we provide a platform where 
-              creativity flourishes and ideas transform into masterpieces.
-            </p>
-            <p className="text-lg text-navy/70 leading-relaxed">
-              Our club organizes workshops, exhibitions, and collaborative projects that bring 
-              together students from all disciplines. Whether you&apos;re a seasoned artist or just 
-              beginning your creative journey, the Art Circle welcomes you with open arms.
+              The Art Circle of Royal College has been one of the most active societies of Royal College
+since 1995. It is also one of the largest clubs in the school, with a member base of over
+1000 students. This society has always supported in polishing the aesthetic talents of not
+only Royalists but also of young students from all over the Island. The main duty of those
+at the Art Circle is to develop the students talents to the extent of being recognized by
+other people in society. Also, the circle works to pave a path for those talented students
+who wish to carry out their skills in the future.
             </p>
             <div className="flex flex-wrap gap-3 pt-4">
-              {["Painting", "Digital Art", "Sculpture", "Photography", "Design"].map((skill, index) => (
+              {["Painting",  "Sculpture", "Digital Art", "Design"].map((skill, index) => (
                 <span 
                   key={skill}
                   className="px-4 py-2 bg-navy/5 text-navy border border-navy/10 rounded-full text-sm hover:bg-gold/10 hover:border-gold/30 transition-colors cursor-default"
@@ -82,17 +80,17 @@ export function About() {
               
               <div className="relative z-10">
                 <div className="text-sm uppercase tracking-widest text-gold mb-6 font-medium">
-                  Teacher in Charge
+                  Teacher in-Charge
                 </div>
                 
                 <div className="flex items-center gap-6">
                   <div className="w-24 h-24 rounded-full bg-gradient-to-br from-gold to-gold-light flex items-center justify-center flex-shrink-0 shadow-lg shadow-gold/20">
-                    <span className="text-3xl font-bold text-navy">JM</span>
+                    <span className="text-3xl font-bold text-navy">SV</span>
                   </div>
                   
                   <div>
                     <h3 className="text-xl font-semibold text-cream mb-1">
-                      Mrs. W.S. Vidanagama
+                      Mrs. Shyamila Vidanagama
                     </h3>
                     <p className="text-cream/70 text-sm mb-2">
                       Senior Art Teacher

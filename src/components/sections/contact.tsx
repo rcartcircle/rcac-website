@@ -142,7 +142,7 @@ export function Contact() {
               
               <div className="space-y-4">
                 <a 
-                  href="#" 
+                  href="https://www.facebook.com/rcartcircle" 
                   className="flex items-center gap-4 p-4 rounded-xl bg-navy/5 hover:bg-gold/10 transition-all duration-300 group"
                 >
                   <div className="w-12 h-12 rounded-full bg-navy flex items-center justify-center group-hover:bg-gold transition-colors duration-300">
@@ -155,7 +155,7 @@ export function Contact() {
                       Facebook
                     </div>
                     <div className="text-sm text-navy/60">
-                      @RCArtCircle
+                      @rcartcircle
                     </div>
                   </div>
                   <svg className="w-5 h-5 text-navy/30 ml-auto group-hover:text-gold group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -164,7 +164,7 @@ export function Contact() {
                 </a>
                 
                 <a 
-                  href="#" 
+                  href="https://www.instagram.com/rcartcircle/" 
                   className="flex items-center gap-4 p-4 rounded-xl bg-navy/5 hover:bg-gold/10 transition-all duration-300 group"
                 >
                   <div className="w-12 h-12 rounded-full bg-navy flex items-center justify-center group-hover:bg-gold transition-colors duration-300">
@@ -177,7 +177,7 @@ export function Contact() {
                       Instagram
                     </div>
                     <div className="text-sm text-navy/60">
-                      @rc_artcircle
+                      @rcartcircle
                     </div>
                   </div>
                   <svg className="w-5 h-5 text-navy/30 ml-auto group-hover:text-gold group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -186,7 +186,7 @@ export function Contact() {
                 </a>
                 
                 <a 
-                  href="mailto:artcircle@royalcollege.edu" 
+                  href="mailto:royalcollegeartcircle@gmail.com" 
                   className="flex items-center gap-4 p-4 rounded-xl bg-navy/5 hover:bg-gold/10 transition-all duration-300 group"
                 >
                   <div className="w-12 h-12 rounded-full bg-navy flex items-center justify-center group-hover:bg-gold transition-colors duration-300">
@@ -199,7 +199,7 @@ export function Contact() {
                       Email
                     </div>
                     <div className="text-sm text-navy/60">
-                      artcircle@royalcollege.edu
+                      royalcollegeartcircle@gmail.com
                     </div>
                   </div>
                   <svg className="w-5 h-5 text-navy/30 ml-auto group-hover:text-gold group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -220,7 +220,7 @@ export function Contact() {
               </div>
               <p className="text-cream/70 text-sm leading-relaxed">
                 Royal College Art Room<br />
-                Reid Avenue, Colombo 07<br />
+                Royal College, Colombo 07<br />
                 Sri Lanka
               </p>
             </div>

@@ -9,18 +9,19 @@ interface BoardMember {
 }
 
 const topBoard: BoardMember[] = [
-  { name: "Alexandra Chen", role: "President", initials: "AC" },
-  { name: "Marcus Williams", role: "Vice President", initials: "MW" },
-  { name: "Sarah Thompson", role: "Secretary", initials: "ST" },
+  { name: "Senuth Sellahewa", role: "Secretary", initials: "SS" },
+  { name: "Resandu Marasinghe", role: "Chairman", initials: "RM" },
+  { name: "Chamithu Vithanage", role: "Treasurer", initials: "CV" },
 ]
 
 const committee: BoardMember[] = [
-  { name: "David Park", role: "Treasurer", initials: "DP" },
-  { name: "Emma Roberts", role: "Event Coordinator", initials: "ER" },
-  { name: "James Liu", role: "Marketing Head", initials: "JL" },
-  { name: "Olivia Brown", role: "Workshop Lead", initials: "OB" },
-  { name: "Ryan Taylor", role: "Exhibition Manager", initials: "RT" },
-  { name: "Nina Patel", role: "Social Media", initials: "NP" },
+  { name: "Binuk Perera", role: "Assistant Chairman", initials: "BP" },
+  { name: "Charu Perera", role: "Assistant Secretary", initials: "CP" },
+  { name: "Yuthmika Withanage", role: "Assistant Treasurer", initials: "YW" },
+  { name: "Thinuga Lakdinu", role: "Student Coordinator", initials: "TL" },
+  { name: "Malithu Perera", role: "IT Coordinator", initials: "MP" },
+  { name: "Jevindu Weerawardhana", role: "Art Team Director", initials: "JW" },
+  { name: "Yenuka de Alwis", role: "Event Coordinator", initials: "YA" },
 ]
 
 function MemberCard({ member, featured = false, delay = 0 }: { member: BoardMember; featured?: boolean; delay?: number }) {
@@ -30,6 +31,7 @@ function MemberCard({ member, featured = false, delay = 0 }: { member: BoardMemb
     <div 
       className={`
         group relative bg-card border rounded-xl p-6 
+        h-full
         transition-all duration-300 cursor-default
         ${featured 
           ? 'border-gold/30 bg-gradient-to-br from-card to-gold/5 hover:border-gold hover:shadow-lg hover:shadow-gold/10' 
@@ -124,8 +126,8 @@ export function Board() {
           ))}
         </div>
 
-        {/* Committee Grid */}
-        <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        {/* Committee Grid: 1 row on large screens */}
+        <div className={`grid grid-cols-2 md:grid-cols-3 gap-4 transition-all duration-700 delay-400 lg:[grid-template-columns:repeat(7,minmax(0,1fr))] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {committee.map((member, index) => (
             <MemberCard key={member.name} member={member} delay={index * 50} />
           ))}
