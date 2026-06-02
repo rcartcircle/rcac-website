@@ -83,7 +83,7 @@ who wish to carry out their skills in the future.
                   Teacher in-Charge
                 </div>
                 
-                <div className="flex items-center gap-6">
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 text-center sm:text-left">
                   <div className="w-24 h-24 rounded-full bg-gradient-to-br from-gold to-gold-light flex items-center justify-center flex-shrink-0 shadow-lg shadow-gold/20">
                     <span className="text-3xl font-bold text-navy">SV</span>
                   </div>

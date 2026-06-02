@@ -26,6 +26,12 @@ const committee: BoardMember[] = [
 
 function MemberCard({ member, featured = false, delay = 0 }: { member: BoardMember; featured?: boolean; delay?: number }) {
   const [isHovered, setIsHovered] = useState(false)
+  const featuredOrderClass =
+    member.role === "Chairman"
+      ? "order-first md:order-2"
+      : member.role === "Secretary"
+        ? "order-2 md:order-1"
+        : "order-3 md:order-3"
   
   return (
     <div 
@@ -33,6 +39,7 @@ function MemberCard({ member, featured = false, delay = 0 }: { member: BoardMemb
         group relative bg-card border rounded-xl p-6 
         h-full
         transition-all duration-300 cursor-default
+        ${featuredOrderClass}
         ${featured 
           ? 'border-gold/30 bg-gradient-to-br from-card to-gold/5 hover:border-gold hover:shadow-lg hover:shadow-gold/10' 
           : 'border-border hover:border-navy/30 hover:shadow-md'
@@ -120,14 +127,14 @@ export function Board() {
         </div>
 
         {/* Top Board - Featured Row */}
-        <div className={`grid md:grid-cols-3 gap-6 mb-10 max-w-3xl mx-auto transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className={`grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 max-w-3xl mx-auto transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {topBoard.map((member, index) => (
             <MemberCard key={member.name} member={member} featured delay={index * 100} />
           ))}
         </div>
 
         {/* Committee Grid: 1 row on large screens */}
-        <div className={`grid grid-cols-2 md:grid-cols-3 gap-4 transition-all duration-700 delay-400 lg:[grid-template-columns:repeat(7,minmax(0,1fr))] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 transition-all duration-700 delay-400 lg:[grid-template-columns:repeat(7,minmax(0,1fr))] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {committee.map((member, index) => (
             <MemberCard key={member.name} member={member} delay={index * 50} />
           ))}

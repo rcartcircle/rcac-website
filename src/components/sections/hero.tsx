@@ -60,7 +60,11 @@ export function Hero() {
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
-    setIsLoaded(true)
+    const frame = requestAnimationFrame(() => {
+      setIsLoaded(true)
+    })
+
+    return () => cancelAnimationFrame(frame)
   }, [])
 
   return (
@@ -130,7 +134,7 @@ export function Hero() {
           </p>
           
           {/* Stats with enhanced styling */}
-          <div className="grid grid-cols-3 gap-4 md:gap-16 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-16 max-w-3xl mx-auto">
             <div className="group">
               <div className="relative p-6 rounded-2xl bg-card border border-border hover:border-gold/50 transition-all duration-300 hover:shadow-lg hover:shadow-gold/10">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-status-completed rounded-full flex items-center justify-center">
