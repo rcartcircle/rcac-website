@@ -21,7 +21,6 @@ export const metadata: Metadata = {
   description: 'Fostering creativity and artistic expression - #AlwaysInAUniqueWay',
   icons: {
     icon: '/favicon.ico',
-    apple: '/apple-icon.png',
   },
 }
 
@@ -32,6 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-background">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body className={`${geist.variable} ${geistMono.variable} ${playfair.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
