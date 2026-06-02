@@ -15,6 +15,17 @@ import projectsData from "@/data/projects-2026.json"
 
 const projects: Project[] = projectsData as Project[]
 
+// Ensure projects render in chronological status order: completed -> ongoing -> upcoming
+const statusOrder: Record<ProjectStatus, number> = {
+  completed: 0,
+  ongoing: 1,
+  upcoming: 2,
+}
+
+const sortedProjects = [...projects].sort((a, b) => {
+  return statusOrder[a.status] - statusOrder[b.status]
+})
+
 const statusConfig: Record<ProjectStatus, { label: string; bgClass: string; textClass: string; dotClass: string }> = {
   completed: { 
     label: "Completed", 
@@ -113,8 +124,8 @@ export function Projects() {
   }, [])
 
   const filteredProjects = activeFilter === "all" 
-    ? projects 
-    : projects.filter(p => p.status === activeFilter)
+    ? sortedProjects
+    : sortedProjects.filter(p => p.status === activeFilter)
 
   return (
     <section ref={sectionRef} id="projects" className="py-24 px-6 bg-card relative">
