@@ -11,44 +11,9 @@ interface Project {
   icon: string
 }
 
-const projects: Project[] = [
-  {
-    title: "Annual Art Exhibition 2024",
-    description: "A grand showcase featuring over 200 artworks from talented students across all grades.",
-    status: "completed",
-    icon: "🖼️"
-  },
-  {
-    title: "Street Art Mural Project",
-    description: "Transforming school walls into vibrant canvases that tell our community story.",
-    status: "ongoing",
-    icon: "🎨"
-  },
-  {
-    title: "Digital Art Workshop Series",
-    description: "Weekly sessions exploring digital illustration, 3D modeling, and animation.",
-    status: "ongoing",
-    icon: "💻"
-  },
-  {
-    title: "Inter-School Art Competition",
-    description: "Hosting a regional competition bringing together young artists from 15 schools.",
-    status: "upcoming",
-    icon: "🏆"
-  },
-  {
-    title: "Art for Charity Auction",
-    description: "Student artwork auction with proceeds going to local community centers.",
-    status: "upcoming",
-    icon: "❤️"
-  },
-  {
-    title: "Portrait Photography Workshop",
-    description: "Mastering the art of capturing emotions and stories through portrait photography.",
-    status: "completed",
-    icon: "📸"
-  },
-]
+import projectsData from "@/data/projects-2026.json"
+
+const projects: Project[] = projectsData as Project[]
 
 const statusConfig: Record<ProjectStatus, { label: string; bgClass: string; textClass: string; dotClass: string }> = {
   completed: { 

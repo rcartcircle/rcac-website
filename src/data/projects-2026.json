@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Blue and Gold Faces 2026",
+    "status": "completed",
+    "description": "A face painting initiative during the Big Match season and Rugby Season, enhancing school spirit through on-site face painting at match venues and classroom visits.",
+    "icon": "🎨",
+    "tags": ["face painting", "big match", "fundraising"]
+  },
+  {
+    "title": "Plein Air Art Exhibition 2026",
+    "status": "ongoing",
+    "description": "An art exhibition capturing the beauty of the school environment through live landscape and portrait drawings, featuring an exclusive event open to Old Royalists.",
+    "icon": "🖼️",
+    "tags": ["exhibition", "landscape"]
+  },
+  {
+    "title": "Chithra Akura 2026",
+    "status": "upcoming",
+    "description": "A multi-phase project including an O/L art seminar series, the outdoor creations board, and a dedicated website to educate students about the art syllabus.",
+    "icon": "📚",
+    "tags": ["seminar", "education"]
+  },
+  {
+    "title": "Legacy 2026",
+    "status": "upcoming",
+    "description": "An educational field visit program taking students from Grades 8–12 to art galleries and museums including the National Museum, JDA Perera Gallery, Saskia Fernando Gallery, and Lionel Wendt Art Gallery.",
+    "icon": "🏛️",
+    "tags": ["field visit", "gallery", "museum"]
+  },
+  {
+    "title": "Fantasy Creations 2026",
+    "status": "upcoming",
+    "description": "An inter-school sculpture competition featuring a workshop, a sculpting and Lego art competition, and a grand exhibition at Royal Mas Arena.",
+    "icon": "🗿",
+    "tags": ["sculpture", "competition"]
+  },
+  {
+    "title": "Grafflix 2026",
+    "status": "upcoming",
+    "description": "A two-phase project featuring a Graphic Designing Workshop at Royal College Union and a Digital Arts Competition open to inter-school and intra-school students.",
+    "icon": "💻",
+    "tags": ["digital art", "graphic design", "competition"]
+  }
+]
