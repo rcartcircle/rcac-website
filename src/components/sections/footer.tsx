@@ -24,6 +24,9 @@ export function Footer() {
             <a href="#projects" className="text-cream/70 hover:text-gold transition-colors">
               Projects
             </a>
+            <a href="/past-boards" className="text-cream/70 hover:text-gold transition-colors">
+              Past Boards
+            </a>
             <a href="#contact" className="text-cream/70 hover:text-gold transition-colors">
               Contact
             </a>
