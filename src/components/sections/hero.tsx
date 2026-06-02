@@ -130,7 +130,7 @@ export function Hero() {
           </p>
           
           <p className="text-navy/70 text-lg max-w-2xl mx-auto mb-16 leading-relaxed">
-            Fostering creativity, inspiring minds, and shaping the future of artistic expression since 1835.
+            Fostering creativity, inspiring minds, and shaping the future of artistic expression since 1995.
           </p>
           
           {/* Stats with enhanced styling */}

@@ -19,7 +19,6 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: 'Royal College Art Circle',
   description: 'Fostering creativity and artistic expression - #AlwaysInAUniqueWay',
-  generator: 'v0.app',
   icons: {
     icon: [
       {
