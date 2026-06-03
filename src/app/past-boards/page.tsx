@@ -4,11 +4,11 @@ import { useState } from "react"
 import Link from "next/link"
 import { ArrowLeft, ChevronDown, Crown, Users } from "lucide-react"
 import { cn } from "@/lib/utils"
+import pastBoardsData from "@/data/past-boards.json"
 
 interface BoardMember {
   name: string
   position: string
-  initials: string
 }
 
 interface YearBoard {
@@ -17,80 +17,21 @@ interface YearBoard {
   members: BoardMember[]
 }
 
-const pastBoards: YearBoard[] = [
-  {
-    year: "2023/24",
-    theme: "Brushstrokes of Tomorrow",
-    members: [
-      { name: "Alexander Chen", position: "President", initials: "AC" },
-      { name: "Sophia Williams", position: "Vice President", initials: "SW" },
-      { name: "Marcus Johnson", position: "Secretary", initials: "MJ" },
-      { name: "Isabella Garcia", position: "Treasurer", initials: "IG" },
-      { name: "David Kim", position: "Editor", initials: "DK" },
-      { name: "Emma Thompson", position: "Asst. Secretary", initials: "ET" },
-    ],
-  },
-  {
-    year: "2022/23",
-    theme: "Colors of Unity",
-    members: [
-      { name: "Ryan Patel", position: "President", initials: "RP" },
-      { name: "Olivia Brown", position: "Vice President", initials: "OB" },
-      { name: "Nathan Lee", position: "Secretary", initials: "NL" },
-      { name: "Ava Martinez", position: "Treasurer", initials: "AM" },
-      { name: "Lucas Anderson", position: "Editor", initials: "LA" },
-      { name: "Mia Robinson", position: "Asst. Secretary", initials: "MR" },
-    ],
-  },
-  {
-    year: "2021/22",
-    theme: "Art Beyond Boundaries",
-    members: [
-      { name: "Ethan Taylor", position: "President", initials: "ET" },
-      { name: "Charlotte Davis", position: "Vice President", initials: "CD" },
-      { name: "Benjamin Wilson", position: "Secretary", initials: "BW" },
-      { name: "Amelia Moore", position: "Treasurer", initials: "AM" },
-      { name: "James White", position: "Editor", initials: "JW" },
-      { name: "Harper Harris", position: "Asst. Secretary", initials: "HH" },
-    ],
-  },
-  {
-    year: "2020/21",
-    theme: "Creative Resilience",
-    members: [
-      { name: "William Clark", position: "President", initials: "WC" },
-      { name: "Evelyn Lewis", position: "Vice President", initials: "EL" },
-      { name: "Henry Walker", position: "Secretary", initials: "HW" },
-      { name: "Abigail Hall", position: "Treasurer", initials: "AH" },
-      { name: "Sebastian Young", position: "Editor", initials: "SY" },
-      { name: "Ella King", position: "Asst. Secretary", initials: "EK" },
-    ],
-  },
-  {
-    year: "2019/20",
-    theme: "Vision & Expression",
-    members: [
-      { name: "Daniel Scott", position: "President", initials: "DS" },
-      { name: "Victoria Green", position: "Vice President", initials: "VG" },
-      { name: "Matthew Adams", position: "Secretary", initials: "MA" },
-      { name: "Scarlett Baker", position: "Treasurer", initials: "SB" },
-      { name: "Joseph Nelson", position: "Editor", initials: "JN" },
-      { name: "Grace Carter", position: "Asst. Secretary", initials: "GC" },
-    ],
-  },
-  {
-    year: "2018/19",
-    theme: "The Art of Possibilities",
-    members: [
-      { name: "Andrew Mitchell", position: "President", initials: "AM" },
-      { name: "Chloe Perez", position: "Vice President", initials: "CP" },
-      { name: "Christopher Roberts", position: "Secretary", initials: "CR" },
-      { name: "Zoey Turner", position: "Treasurer", initials: "ZT" },
-      { name: "Joshua Phillips", position: "Editor", initials: "JP" },
-      { name: "Lily Campbell", position: "Asst. Secretary", initials: "LC" },
-    ],
-  },
-]
+const pastBoards: YearBoard[] = pastBoardsData as YearBoard[]
+
+const EXECUTIVE_POSITIONS = ["Chairman", "Secretary", "Treasurer"]
+
+function getInitials(name: string): string {
+  const parts = name
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+
+  if (parts.length === 0) return "--"
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase()
+
+  return `${parts[0][0]}${parts[parts.length - 1][0]}`.toUpperCase()
+}
 
 function MemberCard({ member, isLeader }: { member: BoardMember; isLeader: boolean }) {
   return (
@@ -123,7 +64,7 @@ function MemberCard({ member, isLeader }: { member: BoardMember; isLeader: boole
                 : "bg-navy/10 text-navy group-hover:bg-gold/20"
             )}
           >
-            {member.initials}
+            {getInitials(member.name)}
           </div>
           
           <div className="min-w-0">
@@ -156,10 +97,10 @@ function YearSection({ board, isExpanded, onToggle }: {
   onToggle: () => void 
 }) {
   const leaders = board.members.filter(m => 
-    ["President", "Vice President", "Secretary"].includes(m.position)
+    EXECUTIVE_POSITIONS.includes(m.position)
   )
   const committee = board.members.filter(m => 
-    !["President", "Vice President", "Secretary"].includes(m.position)
+    !EXECUTIVE_POSITIONS.includes(m.position)
   )
 
   return (
@@ -210,7 +151,7 @@ function YearSection({ board, isExpanded, onToggle }: {
                       key={i}
                       className="w-8 h-8 rounded-full bg-navy text-white flex items-center justify-center text-xs font-bold border-2 border-card"
                     >
-                      {member.initials}
+                      {getInitials(member.name)}
                     </div>
                   ))}
                 </div>
