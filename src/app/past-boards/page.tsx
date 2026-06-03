@@ -1,10 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
-import { ArrowLeft, ChevronDown, Crown, Users } from "lucide-react"
+import { ChevronDown, Crown, Users } from "lucide-react"
 import { cn } from "@/lib/utils"
 import pastBoardsData from "@/data/past-boards.json"
+import { Navbar } from "@/components/sections/navbar"
+import { Footer } from "@/components/sections/footer"
 
 interface BoardMember {
   name: string
@@ -18,6 +19,29 @@ interface YearBoard {
 }
 
 const pastBoards: YearBoard[] = pastBoardsData as YearBoard[]
+
+const CURRENT_YEAR = new Date().getFullYear()
+
+function getBoardStartYear(year: string): number {
+  const match = year.match(/\d{4}/)
+  return match ? Number(match[0]) : Number.NEGATIVE_INFINITY
+}
+
+const sortedBoards = [...pastBoards]
+  .filter((board) => getBoardStartYear(board.year) < CURRENT_YEAR)
+  .sort((a, b) => getBoardStartYear(b.year) - getBoardStartYear(a.year))
+
+const AVAILABLE_YEARS = new Set(
+  sortedBoards
+    .map((board) => getBoardStartYear(board.year))
+    .filter((year) => Number.isFinite(year))
+    .map((year) => String(year))
+)
+const ARCHIVE_START_YEAR = 1995
+const ARCHIVE_YEARS = Array.from(
+  { length: CURRENT_YEAR - ARCHIVE_START_YEAR },
+  (_, index) => String(CURRENT_YEAR - 1 - index)
+)
 
 const EXECUTIVE_POSITIONS = ["Chairman", "Secretary", "Treasurer"]
 
@@ -213,7 +237,7 @@ function YearSection({ board, isExpanded, onToggle }: {
 }
 
 export default function PastBoardsPage() {
-  const [expandedYears, setExpandedYears] = useState<string[]>([pastBoards[0].year])
+  const [expandedYears, setExpandedYears] = useState<string[]>([sortedBoards[0]?.year ?? ""])
 
   const toggleYear = (year: string) => {
     setExpandedYears(prev =>
@@ -223,41 +247,12 @@ export default function PastBoardsPage() {
     )
   }
 
-  const expandAll = () => setExpandedYears(pastBoards.map(b => b.year))
-  const collapseAll = () => setExpandedYears([])
-
   return (
     <main className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-navy hover:text-gold transition-colors group"
-          >
-            <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
-            <span className="font-medium">Back to Home</span>
-          </Link>
-          
-          <div className="flex items-center gap-2">
-            <button
-              onClick={expandAll}
-              className="text-sm px-3 py-1.5 rounded-lg text-navy/60 hover:text-navy hover:bg-secondary transition-colors"
-            >
-              Expand All
-            </button>
-            <button
-              onClick={collapseAll}
-              className="text-sm px-3 py-1.5 rounded-lg text-navy/60 hover:text-navy hover:bg-secondary transition-colors"
-            >
-              Collapse All
-            </button>
-          </div>
-        </div>
-      </header>
+      <Navbar />
 
       {/* Hero */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
+      <section className="relative pt-32 pb-16 md:pt-36 md:pb-20 overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-20 left-10 w-64 h-64 bg-gold/5 rounded-full blur-3xl" />
@@ -274,28 +269,29 @@ export default function PastBoardsPage() {
             Past <span className="text-gold">Boards</span>
           </h1>
           
-          <p className="text-lg text-navy/60 max-w-2xl mx-auto">
-            Honoring the creative leaders who shaped our journey through the years.
-            Each board brought unique vision and artistic excellence to our circle.
+          <p className="text-lg text-navy/60 max-w-2xl mx-auto mb-8">
+            Explore the leadership timeline of the Royal College Art Circle.
           </p>
 
-          {/* Stats */}
-          <div className="flex items-center justify-center gap-8 mt-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-navy">{pastBoards.length}</div>
-              <div className="text-sm text-navy/50">Years</div>
-            </div>
-            <div className="w-px h-10 bg-border" />
-            <div className="text-center">
-              <div className="text-3xl font-bold text-gold">
-                {pastBoards.reduce((acc, b) => acc + b.members.length, 0)}
-              </div>
-              <div className="text-sm text-navy/50">Members</div>
-            </div>
-            <div className="w-px h-10 bg-border" />
-            <div className="text-center">
-              <div className="text-3xl font-bold text-navy">{pastBoards.length}</div>
-              <div className="text-sm text-navy/50">Themes</div>
+          <div className="max-w-5xl mx-auto">
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              {ARCHIVE_YEARS.map((year) => {
+                const hasBoard = AVAILABLE_YEARS.has(year)
+
+                return (
+                  <span
+                    key={year}
+                    className={cn(
+                      "px-3 py-1 rounded-full text-xs border",
+                      hasBoard
+                        ? "bg-navy text-cream border-navy"
+                        : "bg-card text-navy/35 border-border"
+                    )}
+                  >
+                    {year}
+                  </span>
+                )
+              })}
             </div>
           </div>
         </div>
@@ -305,14 +301,17 @@ export default function PastBoardsPage() {
       <section className="py-8 md:py-16">
         <div className="max-w-4xl mx-auto px-4">
           <div className="space-y-6">
-            {pastBoards.map((board) => (
-              <YearSection
-                key={board.year}
-                board={board}
-                isExpanded={expandedYears.includes(board.year)}
-                onToggle={() => toggleYear(board.year)}
-              />
-            ))}
+            {sortedBoards.map((board) => {
+              return (
+                <div key={board.year} id={`year-${board.year}`}>
+                  <YearSection
+                    board={board}
+                    isExpanded={expandedYears.includes(board.year)}
+                    onToggle={() => toggleYear(board.year)}
+                  />
+                </div>
+              )
+            })}
           </div>
 
           {/* End marker */}
@@ -327,14 +326,7 @@ export default function PastBoardsPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-8 border-t border-border">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <p className="text-sm text-navy/50">
-            Royal College Art Circle &bull; #AlwaysInAUniqueWay
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </main>
   )
 }

@@ -1,5 +1,20 @@
 [
   {
+    "year": "2025",
+    "members": [
+      { "name": "Kevan Wijayasundara", "position": "Chairman" },
+      { "name": "Senura Ranajitha", "position": "Secretary" },
+      { "name": "Senuth Sellahewa", "position": "Treasurer" },
+      { "name": "Resandu Marasinghe", "position": "Assistant Chairman" },
+      { "name": "Chamithu Vithanage", "position": "Assistant Secretary" },
+      { "name": "Thisum de Silva", "position": "Assistant Treasurer" },
+      { "name": "Thinuga Lakdinu", "position": "IT Director" },
+      { "name": "Bemitha Silva", "position": "Graphics Team Director" },
+      { "name": "Shashiendra Herath", "position": "Art Team Director" },
+      { "name": "Yuthmika Withanage", "position": "Student Coordinator" }
+    ]
+  },
+  {
     "year": "2024",
     "members": [
       { "name": "Lakindu Vinduwara", "position": "Chairman" },
@@ -12,6 +27,61 @@
       { "name": "Chamithu Vithanage", "position": "Events Coordinator" },
       { "name": "Udaneth Ileperuma", "position": "Student Coordinator" },
       { "name": "Bhishman Balaratnarajah", "position": "Public Relations Director" }
+    ]
+  },
+  {
+    "year": "2023",
+    "members": [
+      { "name": "Sasmitha Hirun", "position": "Chairman" },
+      { "name": "Vihadu Wathsara", "position": "Secretary" },
+      { "name": "Sanvidu Rathnayake", "position": "Treasurer" },
+      { "name": "Thenupa Nethmira", "position": "Assistant Chairman" },
+      { "name": "Sanindu Talwatte", "position": "Assistant Secretary" },
+      { "name": "Anuhas Mawella", "position": "Assistant Treasurer" },
+      { "name": "Amiru Ekanayake", "position": "IT Coordinator" },
+      { "name": "Shehan Seneviratne", "position": "Student Coordinator" },
+      { "name": "Tharusha Karunarathne", "position": "Events Coordinator" },
+      { "name": "Anjana Senadhi", "position": "Public Relations Director" },
+      { "name": "Thasuka Samarasinghe", "position": "Assistant IT Coordinator" },
+      { "name": "Kanil Deshan", "position": "Assistant Student Coordinator" },
+      { "name": "Ruchika Navodya", "position": "Assistant Events Coordinator" },
+      { "name": "Janeesha Wijesekara", "position": "Assistant Public Relations Director" }
+    ]
+  },
+  {
+    "year": "2022",
+    "members": [
+      { "name": "Vinindu Siriwardhana", "position": "Chairman" },
+      { "name": "Ravindu Jayasekara", "position": "Secretary" },
+      { "name": "Methjaya Pathberiya", "position": "Treasurer" },
+      { "name": "Vimukthi Dasunpriya", "position": "Student Coordinator" },
+      { "name": "Sasmitha Hirun", "position": "Assistant Chairman" },
+      { "name": "Kalan Weerabaddana", "position": "Assistant Secretary" },
+      { "name": "Sankitha Bandara", "position": "Assistant Treasurer" },
+      { "name": "Sanvidu Rathnayake", "position": "IT Coordinator" },
+      { "name": "Oshadha Hettiarachchi", "position": "Public Relations Director" },
+      { "name": "Anuhas Mawella", "position": "Events Coordinator" },
+      { "name": "Vihadu Wathsara", "position": "Assistant Student Coordinator" },
+      { "name": "Gayuka Gunasekara", "position": "Assistant IT Coordinator" },
+      { "name": "Didula Prabhashwara", "position": "Assistant Public Relations Director" },
+      { "name": "Isira Wijewardhana", "position": "Assistant Events Coordinator" }
+    ]
+  },
+  {
+    "year": "2021",
+    "members": [
+      { "name": "Pesandu De Alwis", "position": "Chairman" },
+      { "name": "Randitha Tilakratne", "position": "Secretary" },
+      { "name": "Yasith Hennayake", "position": "Treasurer" },
+      { "name": "Methjaya Pathberiya", "position": "Assistant Chairman" },
+      { "name": "Harshana Silva", "position": "Assistant Secretary" },
+      { "name": "Kivindu Mindula", "position": "Assistant Treasurer" },
+      { "name": "Senaan Adikaram", "position": "Public Relations Director" },
+      { "name": "Sanuja Newanjith", "position": "Student Coordinator" },
+      { "name": "Sasmitha Hirun", "position": "Assistant Student Coordinator" },
+      { "name": "Vinindu Siriwardhane", "position": "IT Coordinator" },
+      { "name": "Anuhas Mawella", "position": "Events Coordinator" },
+      { "name": "Gayuka Gunasekara", "position": "Assistant Events Coordinator" }
     ]
   }
 ]
