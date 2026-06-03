@@ -1,5 +1,7 @@
-[
-  {
+{
+  "archiveStartYear": 1995,
+  "boards": [
+    {
     "year": "2025",
     "members": [
       { "name": "Kevan Wijayasundara", "position": "Chairman" },
@@ -14,7 +16,7 @@
       { "name": "Yuthmika Withanage", "position": "Student Coordinator" }
     ]
   },
-  {
+    {
     "year": "2024",
     "members": [
       { "name": "Lakindu Vinduwara", "position": "Chairman" },
@@ -29,7 +31,7 @@
       { "name": "Bhishman Balaratnarajah", "position": "Public Relations Director" }
     ]
   },
-  {
+    {
     "year": "2023",
     "members": [
       { "name": "Sasmitha Hirun", "position": "Chairman" },
@@ -48,7 +50,7 @@
       { "name": "Janeesha Wijesekara", "position": "Assistant Public Relations Director" }
     ]
   },
-  {
+    {
     "year": "2022",
     "members": [
       { "name": "Vinindu Siriwardhana", "position": "Chairman" },
@@ -67,7 +69,7 @@
       { "name": "Isira Wijewardhana", "position": "Assistant Events Coordinator" }
     ]
   },
-  {
+    {
     "year": "2021",
     "members": [
       { "name": "Pesandu De Alwis", "position": "Chairman" },
@@ -83,5 +85,6 @@
       { "name": "Anuhas Mawella", "position": "Events Coordinator" },
       { "name": "Gayuka Gunasekara", "position": "Assistant Events Coordinator" }
     ]
-  }
-]
+    }
+  ]
+}

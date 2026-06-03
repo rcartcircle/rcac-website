@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
+import { MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
@@ -61,12 +62,12 @@ export function Contact() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 max-w-5xl mx-auto items-stretch">
           {/* Contact Form */}
-          <div className={`transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-            <div className="bg-card border border-border rounded-2xl p-8 shadow-sm">
+          <div className={`h-full transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
+            <div className="h-full bg-card border border-border rounded-2xl p-8 shadow-sm">
               {isSubmitted ? (
-                <div className="flex flex-col items-center justify-center py-12 text-center">
+                <div className="min-h-[24rem] w-full flex flex-col items-center justify-center text-center">
                   <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-4">
                     <svg className="w-8 h-8 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -76,55 +77,57 @@ export function Contact() {
                   <p className="text-navy/60">We&apos;ll get back to you soon.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-navy mb-2">
-                      Your Name
-                    </label>
-                    <Input
-                      id="name"
-                      type="text"
-                      placeholder="Enter your name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="bg-cream border-border focus:border-gold focus:ring-gold/20"
-                      required
-                    />
+                <form onSubmit={handleSubmit} className="min-h-[24rem] w-full flex flex-col gap-6">
+                  <div className="space-y-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-navy mb-2">
+                        Your Name
+                      </label>
+                      <Input
+                        id="name"
+                        type="text"
+                        placeholder="Enter your name"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="bg-cream border-border focus:border-gold focus:ring-gold/20"
+                        required
+                      />
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-navy mb-2">
+                        Email Address
+                      </label>
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="Enter your email"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="bg-cream border-border focus:border-gold focus:ring-gold/20"
+                        required
+                      />
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-navy mb-2">
+                        Message
+                      </label>
+                      <textarea
+                        id="message"
+                        placeholder="Tell us what's on your mind..."
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        rows={4}
+                        className="w-full rounded-lg bg-cream border border-border px-4 py-3 text-navy placeholder:text-navy/40 focus:outline-none focus:ring-2 focus:ring-gold/20 focus:border-gold resize-none transition-colors"
+                        required
+                      />
+                    </div>
                   </div>
-                  
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-navy mb-2">
-                      Email Address
-                    </label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="Enter your email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="bg-cream border-border focus:border-gold focus:ring-gold/20"
-                      required
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-navy mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      placeholder="Tell us what's on your mind..."
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      rows={4}
-                      className="w-full rounded-lg bg-cream border border-border px-4 py-3 text-navy placeholder:text-navy/40 focus:outline-none focus:ring-2 focus:ring-gold/20 focus:border-gold resize-none transition-colors"
-                      required
-                    />
-                  </div>
-                  
+
                   <Button 
                     type="submit" 
-                    className="w-full bg-navy hover:bg-navy-light text-cream transition-all duration-300 hover:shadow-lg hover:shadow-navy/20"
+                    className="mt-auto w-full bg-navy hover:bg-navy-light text-cream transition-all duration-300 hover:shadow-lg hover:shadow-navy/20"
                   >
                     Send Message
                   </Button>
@@ -134,7 +137,7 @@ export function Contact() {
           </div>
 
           {/* Social Links & Info */}
-          <div className={`space-y-6 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
+          <div className={`h-full flex flex-col gap-6 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
             <div className="bg-card border border-border rounded-2xl p-8 shadow-sm">
               <h3 className="text-lg font-semibold text-navy mb-6">
                 Connect With Us
@@ -210,19 +213,29 @@ export function Contact() {
             </div>
             
             {/* Quick info card */}
-            <div className="bg-navy rounded-2xl p-6 text-cream">
-              <div className="flex items-center gap-3 mb-3">
-                <svg className="w-5 h-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <span className="font-medium">Visit Us</span>
+            <div className="relative overflow-hidden rounded-2xl border border-border bg-card p-8 shadow-sm flex-1">
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-gold via-gold-light to-gold/40" />
+              <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-gold/5 blur-3xl pointer-events-none" />
+
+              <div className="relative z-10 h-full flex flex-col justify-center gap-5">
+                <div className="inline-flex items-center gap-2 rounded-full bg-navy/5 px-3 py-1 text-xs font-medium uppercase tracking-widest text-gold w-fit">
+                  Visit Us
+                </div>
+
+                <div className="flex items-start gap-4 rounded-xl border border-border bg-cream p-5">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy text-cream">
+                    <MapPin className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-widest text-navy/45 mb-1">
+                      Our Address
+                    </p>
+                    <p className="text-base leading-relaxed text-navy">
+                      Royal College Art Room, Royal College, Colombo 07, Sri Lanka
+                    </p>
+                  </div>
+                </div>
               </div>
-              <p className="text-cream/70 text-sm leading-relaxed">
-                Royal College Art Room<br />
-                Royal College, Colombo 07<br />
-                Sri Lanka
-              </p>
             </div>
           </div>
         </div>

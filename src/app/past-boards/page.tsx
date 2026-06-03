@@ -18,7 +18,12 @@ interface YearBoard {
   members: BoardMember[]
 }
 
-const pastBoards: YearBoard[] = pastBoardsData as YearBoard[]
+interface PastBoardsConfig {
+  archiveStartYear?: number
+  boards: YearBoard[]
+}
+
+const { archiveStartYear = 1995, boards: pastBoards } = pastBoardsData as PastBoardsConfig
 
 const CURRENT_YEAR = new Date().getFullYear()
 
@@ -37,7 +42,7 @@ const AVAILABLE_YEARS = new Set(
     .filter((year) => Number.isFinite(year))
     .map((year) => String(year))
 )
-const ARCHIVE_START_YEAR = 1995
+const ARCHIVE_START_YEAR = archiveStartYear
 const ARCHIVE_YEARS = Array.from(
   { length: CURRENT_YEAR - ARCHIVE_START_YEAR },
   (_, index) => String(CURRENT_YEAR - 1 - index)

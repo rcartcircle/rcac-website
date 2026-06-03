@@ -18,8 +18,8 @@ export function Footer() {
             <a href="#about" className="text-cream/70 hover:text-gold transition-colors">
               About
             </a>
-            <a href="#board" className="text-cream/70 hover:text-gold transition-colors">
-              Board
+            <a href="/leadership" className="text-cream/70 hover:text-gold transition-colors">
+              Leadership
             </a>
             <a href="#projects" className="text-cream/70 hover:text-gold transition-colors">
               Projects

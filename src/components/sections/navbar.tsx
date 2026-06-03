@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
 
 const navItems = [
   { label: "About", href: "#about" },
-  { label: "Board", href: "#board" },
+  { label: "Leadership", href: "/leadership", isPage: true },
   { label: "Past Boards", href: "/past-boards", isPage: true },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
@@ -15,6 +16,15 @@ const navItems = [
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
+
+  const resolveHref = (href: string) => {
+    if (href.startsWith("#") && pathname !== "/") {
+      return `/${href}`
+    }
+
+    return href
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,21 +64,21 @@ export function Navbar() {
               item.isPage ? (
                 <Link
                   key={item.label}
-                  href={item.href}
+                  href={resolveHref(item.href)}
                   className="text-sm text-navy/70 hover:text-gold transition-colors relative group"
                 >
                   {item.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full" />
                 </Link>
               ) : (
-                <a
+                <Link
                   key={item.label}
-                  href={item.href}
+                  href={resolveHref(item.href)}
                   className="text-sm text-navy/70 hover:text-gold transition-colors relative group"
                 >
                   {item.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full" />
-                </a>
+                </Link>
               )
             ))}
           </nav>
@@ -102,15 +112,15 @@ export function Navbar() {
                   {item.label}
                 </Link>
               ) : (
-                <a
+                <Link
                   key={item.label}
-                  href={item.href}
+                  href={resolveHref(item.href)}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block py-3 text-navy/70 hover:text-gold transition-colors"
                   style={{ transitionDelay: `${index * 50}ms` }}
                 >
                   {item.label}
-                </a>
+                </Link>
               )
             ))}
           </nav>
