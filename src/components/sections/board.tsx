@@ -21,7 +21,7 @@ const committee: BoardMember[] = [
   { name: "Thinuga Lakdinu", role: "Student Coordinator", initials: "TL" },
   { name: "Malithu Perera", role: "IT Coordinator", initials: "MP" },
   { name: "Jevindu Weerawardhana", role: "Art Team Director", initials: "JW" },
-  { name: "Yenuka de Alwis", role: "Event Coordinator", initials: "YA" },
+  { name: "Yenuka De Alwis", role: "Event Coordinator", initials: "YA" },
 ]
 
 function MemberCard({ member, featured = false, delay = 0 }: { member: BoardMember; featured?: boolean; delay?: number }) {

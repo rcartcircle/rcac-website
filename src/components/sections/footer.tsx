@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export function Footer() {
   return (
     <footer className="py-12 px-6 bg-navy text-cream">
@@ -15,21 +17,21 @@ export function Footer() {
 
           {/* Navigation */}
           <nav className="flex flex-wrap justify-center gap-8 text-sm">
-            <a href="#about" className="text-cream/70 hover:text-gold transition-colors">
+            <Link href="/#about" className="text-cream/70 hover:text-gold transition-colors">
               About
-            </a>
-            <a href="/leadership" className="text-cream/70 hover:text-gold transition-colors">
+            </Link>
+            <Link href="/leadership" className="text-cream/70 hover:text-gold transition-colors">
               Leadership
-            </a>
-            <a href="#projects" className="text-cream/70 hover:text-gold transition-colors">
+            </Link>
+            <Link href="/#projects" className="text-cream/70 hover:text-gold transition-colors">
               Projects
-            </a>
-            <a href="/past-boards" className="text-cream/70 hover:text-gold transition-colors">
+            </Link>
+            <Link href="/past-boards" className="text-cream/70 hover:text-gold transition-colors">
               Past Boards
-            </a>
-            <a href="#contact" className="text-cream/70 hover:text-gold transition-colors">
+            </Link>
+            <Link href="/#contact" className="text-cream/70 hover:text-gold transition-colors">
               Contact
-            </a>
+            </Link>
           </nav>
 
           {/* Tagline */}

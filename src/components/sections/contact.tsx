@@ -5,6 +5,8 @@ import { MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
+const WEB3FORMS_ACCESS_KEY = "c8048632-1367-4afe-aebb-ef1a5ba37a42"
+
 export function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -12,7 +14,9 @@ export function Contact() {
     message: ""
   })
   const [isVisible, setIsVisible] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitState, setSubmitState] = useState<"idle" | "success" | "error">("idle")
+  const [statusMessage, setStatusMessage] = useState("")
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -32,13 +36,42 @@ export function Contact() {
     return () => observer.disconnect()
   }, [])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setIsSubmitted(true)
-    setTimeout(() => {
-      setIsSubmitted(false)
+    setIsSubmitting(true)
+    setSubmitState("idle")
+    setStatusMessage("")
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      })
+
+      const result = await response.json()
+
+      if (!response.ok || result.success === false) {
+        throw new Error(result.message || "Something went wrong. Please try again.")
+      }
+
+      setSubmitState("success")
+      setStatusMessage("Message Sent! We'll get back to you soon.")
       setFormData({ name: "", email: "", message: "" })
-    }, 3000)
+    } catch (error) {
+      setSubmitState("error")
+      setStatusMessage(error instanceof Error ? error.message : "Failed to send your message. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -66,73 +99,81 @@ export function Contact() {
           {/* Contact Form */}
           <div className={`h-full transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
             <div className="h-full bg-card border border-border rounded-2xl p-8 shadow-sm">
-              {isSubmitted ? (
-                <div className="min-h-[24rem] w-full flex flex-col items-center justify-center text-center">
-                  <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-4">
-                    <svg className="w-8 h-8 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-semibold text-navy mb-2">Message Sent!</h3>
-                  <p className="text-navy/60">We&apos;ll get back to you soon.</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="min-h-[24rem] w-full flex flex-col gap-6">
-                  <div className="space-y-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-navy mb-2">
-                        Your Name
-                      </label>
-                      <Input
-                        id="name"
-                        type="text"
-                        placeholder="Enter your name"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="bg-cream border-border focus:border-gold focus:ring-gold/20"
-                        required
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-navy mb-2">
-                        Email Address
-                      </label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="Enter your email"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="bg-cream border-border focus:border-gold focus:ring-gold/20"
-                        required
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-navy mb-2">
-                        Message
-                      </label>
-                      <textarea
-                        id="message"
-                        placeholder="Tell us what's on your mind..."
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        rows={4}
-                        className="w-full rounded-lg bg-cream border border-border px-4 py-3 text-navy placeholder:text-navy/40 focus:outline-none focus:ring-2 focus:ring-gold/20 focus:border-gold resize-none transition-colors"
-                        required
-                      />
-                    </div>
-                  </div>
+              <div className="mb-6">
+                <h3 className="text-lg font-semibold text-navy">
+                  Send Us a Message
+                </h3>
+                <p className="mt-1 text-sm text-navy/60">
+                  Fill out the form below and we&apos;ll get back to you.
+                </p>
+              </div>
 
-                  <Button 
-                    type="submit" 
-                    className="mt-auto w-full bg-navy hover:bg-navy-light text-cream transition-all duration-300 hover:shadow-lg hover:shadow-navy/20"
+              <form onSubmit={handleSubmit} className="min-h-[24rem] w-full flex flex-col gap-6">
+                <input type="hidden" name="access_key" value={WEB3FORMS_ACCESS_KEY} />
+
+                {submitState !== "idle" && (
+                  <div
+                    className={`rounded-xl border px-4 py-3 text-sm ${submitState === "success" ? "border-emerald-200 bg-emerald-50 text-emerald-700" : "border-red-200 bg-red-50 text-red-700"}`}
                   >
-                    Send Message
-                  </Button>
-                </form>
-              )}
+                    {statusMessage}
+                  </div>
+                )}
+
+                <div className="space-y-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-navy mb-2">
+                      Your Name
+                    </label>
+                    <Input
+                      id="name"
+                      type="text"
+                      placeholder="Enter your name"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="bg-cream border-border focus:border-gold focus:ring-gold/20"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-navy mb-2">
+                      Email Address
+                    </label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="Enter your email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="bg-cream border-border focus:border-gold focus:ring-gold/20"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-navy mb-2">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      placeholder="Tell us what's on your mind..."
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      rows={6}
+                      className="w-full min-h-40 rounded-lg bg-cream border border-border px-4 py-3 text-navy placeholder:text-navy/40 focus:outline-none focus:ring-2 focus:ring-gold/20 focus:border-gold resize-none transition-colors"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <Button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="mt-auto w-full bg-navy hover:bg-navy-light text-cream transition-all duration-300 hover:shadow-lg hover:shadow-navy/20 disabled:cursor-not-allowed disabled:opacity-70"
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </Button>
+              </form>
             </div>
           </div>
 
