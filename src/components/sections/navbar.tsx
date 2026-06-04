@@ -35,13 +35,19 @@ export function Navbar() {
   }, [])
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled 
-          ? "bg-cream/95 backdrop-blur-md border-b border-border shadow-sm" 
-          : "bg-transparent"
-      }`}
-    >
+    <>
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-40 md:hidden bg-cream/35 backdrop-blur-md pointer-events-none" aria-hidden="true" />
+      )}
+
+      <header 
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled || isMobileMenuOpen
+            ? "bg-cream/95 backdrop-blur-md border-b border-border shadow-sm" 
+            : "bg-transparent"
+        }`}
+      >
+
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo (image from public/logo.png) */}
@@ -98,8 +104,8 @@ export function Navbar() {
         </div>
 
         {/* Mobile Menu */}
-        <div className={`md:hidden overflow-hidden transition-all duration-300 ${isMobileMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'}`}>
-          <nav className="pt-4 pb-2 border-t border-border mt-4">
+        <div className={`relative z-50 md:hidden overflow-hidden transition-all duration-300 ${isMobileMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'}`}>
+          <nav className="mt-4 rounded-2xl border border-border bg-cream/95 backdrop-blur-md px-4 pt-4 pb-2 shadow-lg shadow-navy/10">
             {navItems.map((item, index) => (
               item.isPage ? (
                 <Link
@@ -127,5 +133,6 @@ export function Navbar() {
         </div>
       </div>
     </header>
+    </>
   )
 }

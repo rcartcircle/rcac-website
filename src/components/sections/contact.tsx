@@ -75,13 +75,13 @@ export function Contact() {
   }
 
   return (
-    <section ref={sectionRef} id="contact" className="py-24 px-6 bg-cream relative overflow-hidden">
+    <section ref={sectionRef} id="contact" className="py-20 px-4 sm:px-6 md:py-24 bg-cream relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-20 right-10 w-64 h-64 bg-gold/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-20 left-10 w-48 h-48 bg-navy/5 rounded-full blur-3xl pointer-events-none" />
       
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className={`text-center mb-12 md:mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="w-8 h-px bg-gold" />
             <span className="text-gold text-sm uppercase tracking-widest font-medium">Reach Out</span>
@@ -95,10 +95,10 @@ export function Contact() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 max-w-5xl mx-auto items-stretch">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 md:gap-12 max-w-5xl mx-auto items-start lg:items-stretch">
           {/* Contact Form */}
           <div className={`h-full transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-            <div className="h-full bg-card border border-border rounded-2xl p-8 shadow-sm">
+            <div className="h-full bg-card border border-border rounded-2xl p-5 sm:p-6 md:p-8 shadow-sm">
               <div className="mb-6">
                 <h3 className="text-lg font-semibold text-navy">
                   Send Us a Message
@@ -179,7 +179,7 @@ export function Contact() {
 
           {/* Social Links & Info */}
           <div className={`h-full flex flex-col gap-6 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-            <div className="bg-card border border-border rounded-2xl p-8 shadow-sm">
+            <div className="bg-card border border-border rounded-2xl p-5 sm:p-6 md:p-8 shadow-sm">
               <h3 className="text-lg font-semibold text-navy mb-6">
                 Connect With Us
               </h3>
@@ -254,11 +254,11 @@ export function Contact() {
             </div>
             
             {/* Quick info card */}
-            <div className="relative overflow-hidden rounded-2xl border border-border bg-card p-8 shadow-sm flex-1">
+            <div className="relative overflow-hidden rounded-2xl border border-border bg-card p-5 sm:p-6 md:p-8 shadow-sm lg:flex-1">
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-gold via-gold-light to-gold/40" />
               <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-gold/5 blur-3xl pointer-events-none" />
 
-              <div className="relative z-10 h-full flex flex-col justify-center gap-5">
+              <div className="relative z-10 h-full flex flex-col justify-center gap-4 sm:gap-5">
                 <div className="inline-flex items-center gap-2 rounded-full bg-navy/5 px-3 py-1 text-xs font-medium uppercase tracking-widest text-gold w-fit">
                   Visit Us
                 </div>
