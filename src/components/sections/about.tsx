@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 
 export function About() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {

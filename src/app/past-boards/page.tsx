@@ -242,14 +242,10 @@ function YearSection({ board, isExpanded, onToggle }: {
 }
 
 export default function PastBoardsPage() {
-  const [expandedYears, setExpandedYears] = useState<string[]>([sortedBoards[0]?.year ?? ""])
+  const [activeYear, setActiveYear] = useState<string | null>(sortedBoards[0]?.year ?? null)
 
   const toggleYear = (year: string) => {
-    setExpandedYears(prev =>
-      prev.includes(year)
-        ? prev.filter(y => y !== year)
-        : [...prev, year]
-    )
+    setActiveYear((currentYear) => (currentYear === year ? null : year))
   }
 
   return (
@@ -311,7 +307,7 @@ export default function PastBoardsPage() {
                 <div key={board.year} id={`year-${board.year}`}>
                   <YearSection
                     board={board}
-                    isExpanded={expandedYears.includes(board.year)}
+                    isExpanded={activeYear === board.year}
                     onToggle={() => toggleYear(board.year)}
                   />
                 </div>

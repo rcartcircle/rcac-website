@@ -57,7 +57,7 @@ function PaintBrushCursor() {
 }
 
 export function Hero() {
-  const [isLoaded, setIsLoaded] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(true)
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => {
@@ -87,6 +87,8 @@ export function Hero() {
           background-size: 200% 100%;
           -webkit-background-clip: text;
           background-clip: text;
+          -webkit-text-fill-color: transparent;
+          color: transparent;
           animation: shimmer 3s ease-in-out infinite;
         }
       `}</style>

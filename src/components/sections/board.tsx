@@ -84,7 +84,7 @@ function MemberCard({ member, featured = false, delay = 0 }: { member: BoardMemb
 }
 
 export function Board() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {

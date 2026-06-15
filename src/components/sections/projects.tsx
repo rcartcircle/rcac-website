@@ -102,7 +102,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 }
 
 export function Projects() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
   const [activeFilter, setActiveFilter] = useState<"all" | ProjectStatus>("all")
   const sectionRef = useRef<HTMLElement>(null)
 
