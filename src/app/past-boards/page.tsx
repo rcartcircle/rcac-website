@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { ChevronDown, Crown, Users } from "lucide-react"
 import { cn } from "@/lib/utils"
 import pastBoardsData from "@/data/past-boards.json"
@@ -120,134 +119,94 @@ function MemberCard({ member, isLeader }: { member: BoardMember; isLeader: boole
   )
 }
 
-function YearSection({ board, isExpanded, onToggle }: { 
+function YearSection({
+  board,
+  defaultOpen = false,
+}: {
   board: YearBoard
-  isExpanded: boolean
-  onToggle: () => void 
+  defaultOpen?: boolean
 }) {
-  const leaders = board.members.filter(m => 
-    EXECUTIVE_POSITIONS.includes(m.position)
-  )
-  const committee = board.members.filter(m => 
-    !EXECUTIVE_POSITIONS.includes(m.position)
-  )
+  const leaders = board.members.filter((m) => EXECUTIVE_POSITIONS.includes(m.position))
+  const committee = board.members.filter((m) => !EXECUTIVE_POSITIONS.includes(m.position))
 
   return (
     <div className="relative">
-      {/* Timeline connector */}
       <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-gold via-navy/20 to-transparent" />
-      
+
       <div className="relative pl-16">
-        {/* Year marker */}
         <div className="absolute left-0 top-0 w-12 h-12 rounded-full bg-gradient-to-br from-navy to-navy-light flex items-center justify-center shadow-lg">
           <span className="text-gold font-bold text-xs">{board.year.split("/")[0].slice(-2)}</span>
         </div>
 
-        <div
-          className={cn(
-            "bg-card border border-border rounded-2xl overflow-hidden transition-all duration-500",
-            isExpanded ? "shadow-xl shadow-navy/5" : "shadow-md"
-          )}
+        <details
+          name="past-boards"
+          open={defaultOpen}
+          className="group bg-card border border-border rounded-2xl overflow-hidden shadow-md open:shadow-xl open:shadow-navy/5"
         >
-          {/* Header - Always visible */}
-          <button
-            onClick={onToggle}
-            className="w-full p-6 flex items-center justify-between hover:bg-secondary/30 transition-colors text-left"
-          >
+          <summary className="w-full p-6 flex items-center justify-between hover:bg-secondary/30 transition-colors text-left cursor-pointer list-none [&::-webkit-details-marker]:hidden">
             <div>
               <div className="flex items-center gap-3 mb-1">
-                <h3 className="text-xl md:text-2xl font-serif font-bold text-navy">
-                  {board.year}
-                </h3>
+                <h3 className="text-xl md:text-2xl font-serif font-bold text-navy">{board.year}</h3>
                 <div className="flex items-center gap-1 text-navy/40">
                   <Users className="w-4 h-4" />
                   <span className="text-sm">{board.members.length}</span>
                 </div>
               </div>
               {board.theme && (
-                <p className="text-sm text-gold font-medium italic">
-                  &quot;{board.theme}&quot;
-                </p>
+                <p className="text-sm text-gold font-medium italic">&quot;{board.theme}&quot;</p>
               )}
             </div>
-            
+
             <div className="flex items-center gap-4">
-              {/* Preview avatars when collapsed */}
-              {!isExpanded && (
-                <div className="hidden sm:flex -space-x-2">
-                  {leaders.slice(0, 3).map((member, i) => (
-                    <div
-                      key={i}
-                      className="w-8 h-8 rounded-full bg-navy text-white flex items-center justify-center text-xs font-bold border-2 border-card"
-                    >
-                      {getInitials(member.name)}
-                    </div>
-                  ))}
-                </div>
-              )}
-              
-              <ChevronDown
-                className={cn(
-                  "w-5 h-5 text-navy/60 transition-transform duration-300",
-                  isExpanded && "rotate-180"
-                )}
-              />
+              <div className="hidden sm:flex -space-x-2 group-open:hidden">
+                {leaders.slice(0, 3).map((member, i) => (
+                  <div
+                    key={i}
+                    className="w-8 h-8 rounded-full bg-navy text-white flex items-center justify-center text-xs font-bold border-2 border-card"
+                  >
+                    {getInitials(member.name)}
+                  </div>
+                ))}
+              </div>
+
+              <ChevronDown className="w-5 h-5 text-navy/60 transition-transform duration-300 group-open:rotate-180" />
             </div>
-          </button>
+          </summary>
 
-          {/* Expanded content */}
-          <div
-            className={cn(
-              "grid transition-all duration-500 ease-in-out",
-              isExpanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-            )}
-          >
-            <div className="overflow-hidden">
-              <div className="px-6 pb-6 space-y-6">
-                {/* Divider */}
-                <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-                
-                {/* Leaders */}
-                <div>
-                  <h4 className="text-xs uppercase tracking-widest text-navy/50 font-semibold mb-3">
-                    Executive Board
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    {leaders.map((member, i) => (
-                      <MemberCard key={i} member={member} isLeader={true} />
-                    ))}
-                  </div>
-                </div>
+          <div className="px-6 pb-6 space-y-6">
+            <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
-                {/* Committee */}
-                {committee.length > 0 && (
-                  <div>
-                    <h4 className="text-xs uppercase tracking-widest text-navy/50 font-semibold mb-3">
-                      Committee Members
-                    </h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                      {committee.map((member, i) => (
-                        <MemberCard key={i} member={member} isLeader={false} />
-                      ))}
-                    </div>
-                  </div>
-                )}
+            <div>
+              <h4 className="text-xs uppercase tracking-widest text-navy/50 font-semibold mb-3">
+                Executive Board
+              </h4>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {leaders.map((member, i) => (
+                  <MemberCard key={i} member={member} isLeader={true} />
+                ))}
               </div>
             </div>
+
+            {committee.length > 0 && (
+              <div>
+                <h4 className="text-xs uppercase tracking-widest text-navy/50 font-semibold mb-3">
+                  Committee Members
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {committee.map((member, i) => (
+                    <MemberCard key={i} member={member} isLeader={false} />
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
-        </div>
+        </details>
       </div>
     </div>
   )
 }
 
 export default function PastBoardsPage() {
-  const [activeYear, setActiveYear] = useState<string | null>(sortedBoards[0]?.year ?? null)
-
-  const toggleYear = (year: string) => {
-    setActiveYear((currentYear) => (currentYear === year ? null : year))
-  }
-
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
@@ -302,14 +261,10 @@ export default function PastBoardsPage() {
       <section className="py-8 md:py-16">
         <div className="max-w-4xl mx-auto px-4">
           <div className="space-y-6">
-            {sortedBoards.map((board) => {
+            {sortedBoards.map((board, index) => {
               return (
                 <div key={board.year} id={`year-${board.year}`}>
-                  <YearSection
-                    board={board}
-                    isExpanded={activeYear === board.year}
-                    onToggle={() => toggleYear(board.year)}
-                  />
+                  <YearSection board={board} defaultOpen={index === 0} />
                 </div>
               )
             })}

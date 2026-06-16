@@ -110,3 +110,42 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-text {
+  color: var(--gold);
+  background: linear-gradient(
+    90deg,
+    var(--navy) 40%,
+    var(--gold) 50%,
+    var(--navy) 60%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .shimmer-text {
+    -webkit-text-fill-color: transparent;
+  }
+}

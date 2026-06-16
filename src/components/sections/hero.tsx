@@ -1,6 +1,7 @@
 "use client"
 
 import { AnimatedCounter } from "@/components/animated-counter"
+import { countProjectsByStatus } from "@/lib/project-stats"
 import { useEffect, useRef, useState } from "react"
 
 function FloatingShape({ delay, duration, className }: { delay: number; duration: number; className: string }) {
@@ -57,42 +58,12 @@ function PaintBrushCursor() {
 }
 
 export function Hero() {
-  const [isLoaded, setIsLoaded] = useState(true)
-
-  useEffect(() => {
-    const frame = requestAnimationFrame(() => {
-      setIsLoaded(true)
-    })
-
-    return () => cancelAnimationFrame(frame)
-  }, [])
+  const completedCount = countProjectsByStatus("completed")
+  const ongoingCount = countProjectsByStatus("ongoing")
+  const upcomingCount = countProjectsByStatus("upcoming")
 
   return (
     <>
-      <style jsx global>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(-20px) rotate(5deg); }
-        }
-        @keyframes paint-stroke {
-          0% { stroke-dashoffset: 1000; }
-          100% { stroke-dashoffset: 0; }
-        }
-        @keyframes shimmer {
-          0% { background-position: -200% 0; }
-          100% { background-position: 200% 0; }
-        }
-        .shimmer-text {
-          background: linear-gradient(90deg, var(--navy) 40%, var(--gold) 50%, var(--navy) 60%);
-          background-size: 200% 100%;
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
-          color: transparent;
-          animation: shimmer 3s ease-in-out infinite;
-        }
-      `}</style>
-      
       <PaintBrushCursor />
       
       <section 
@@ -114,7 +85,7 @@ export function Hero() {
           <div className="absolute inset-16 border border-navy/5 rounded-full" />
         </div>
         
-        <div className={`relative z-10 text-center max-w-4xl mx-auto transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className="relative z-10 text-center max-w-4xl mx-auto">
           {/* Small decorative element */}
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="w-16 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
@@ -124,7 +95,7 @@ export function Hero() {
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 font-serif">
             <span className="text-navy block">Royal College</span>
-            <span className="shimmer-text text-transparent">Art Circle</span>
+            <span className="shimmer-text block">Art Circle</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-gold mb-4 italic font-medium tracking-wide">
@@ -144,7 +115,7 @@ export function Hero() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <AnimatedCounter end={1} label="Completed" />
+                <AnimatedCounter end={completedCount} label="Completed" />
               </div>
             </div>
             <div className="group">
@@ -154,7 +125,7 @@ export function Hero() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <AnimatedCounter end={2} label="Ongoing" />
+                <AnimatedCounter end={ongoingCount} label="Ongoing" />
               </div>
             </div>
             <div className="group">
@@ -164,7 +135,7 @@ export function Hero() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <AnimatedCounter end={3} label="Upcoming" />
+                <AnimatedCounter end={upcomingCount} label="Upcoming" />
               </div>
             </div>
           </div>
