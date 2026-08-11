@@ -9,9 +9,11 @@ interface Project {
   description: string
   status: ProjectStatus
   icon: string
+  slug?: string
 }
 
 import projectsData from "@/data/projects-2026.json"
+import Link from "next/link"
 
 const projects: Project[] = projectsData as Project[]
 
@@ -90,12 +92,21 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         </p>
         
         {/* Learn more link */}
-        <div className="mt-4 flex items-center gap-2 text-gold text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <span>Learn more</span>
-          <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </div>
+        {project.slug ? (
+          <Link href={`/${project.slug}`} className="mt-4 inline-flex items-center gap-2 text-gold text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span>Learn more</span>
+            <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
+        ) : (
+          <div className="mt-4 flex items-center gap-2 text-gold text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span>Learn more</span>
+            <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </div>
+        )}
       </div>
     </div>
   )
