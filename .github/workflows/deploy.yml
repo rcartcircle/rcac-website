@@ -15,6 +15,11 @@ jobs:
       - name: Checkout Source Code
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+
       - name: Install Vercel CLI
         run: npm install --global vercel@32.4.0
 
