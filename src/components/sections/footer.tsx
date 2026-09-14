@@ -3,25 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowUpRight,
-  Globe,
-  Instagram,
-  Phone,
-  Youtube,
-} from "lucide-react";
-
-function FacebookIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      aria-hidden="true"
-      className={className}
-      fill="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path d="M14 8h3V4h-3c-3.314 0-5 1.686-5 5v3H6v4h3v8h4v-8h3.2l.8-4H13V9c0-.552.448-1 1-1Z" />
-    </svg>
-  );
-}
+  IconArrowUpRight,
+  IconBrandFacebook,
+  IconBrandInstagram,
+  IconBrandYoutube,
+  IconPhone,
+  IconWorld,
+} from "@tabler/icons-react";
 
 const exploreLinks = [
   ["Art Syllabus", "/art-syllabus"],
@@ -39,13 +27,17 @@ const contacts = [
 ] as const;
 
 const socialLinks = [
-  ["Website", "https://www.rcartcircle.com/", Globe],
-  ["Instagram", "https://www.instagram.com/rcartcircle/", Instagram],
-  ["Facebook", "https://web.facebook.com/rcartcircle/?_rdc=1&_rdr", FacebookIcon],
+  ["Website", "https://www.rcartcircle.com/", IconWorld],
+  ["Instagram", "https://www.instagram.com/rcartcircle/", IconBrandInstagram],
+  [
+    "Facebook",
+    "https://web.facebook.com/rcartcircle/?_rdc=1&_rdr",
+    IconBrandFacebook,
+  ],
   [
     "YouTube",
     "https://www.youtube.com/channel/UCEiZrkSbRAxR0WfzgFH2jmQ",
-    Youtube,
+    IconBrandYoutube,
   ],
 ] as const;
 
@@ -107,7 +99,11 @@ export function Footer() {
                 {label}
               </a>
             ) : (
-                <Link key={label} href={href} className="footer-link text-[#bdbdbd] transition-colors hover:text-white">
+              <Link
+                key={label}
+                href={href}
+                className="footer-link text-[#bdbdbd] transition-colors hover:text-white"
+              >
                 {label}
               </Link>
             ),
@@ -123,7 +119,7 @@ export function Footer() {
                 href={href}
                 className="flex items-center gap-3 text-[#bdbdbd] transition hover:text-white"
               >
-                <Phone className="h-4 w-4" />
+                <IconPhone className="h-4 w-4" />
                 {number}
               </a>
             </div>
@@ -142,7 +138,7 @@ export function Footer() {
               <br />
               www.rcartcircle.com
             </span>
-            <ArrowUpRight className="h-8 w-8 shrink-0" />
+            <IconArrowUpRight className="h-8 w-8 shrink-0" />
           </a>
           <a
             href="mailto:info@artcircle.royalcollege.lk"
@@ -153,7 +149,7 @@ export function Footer() {
               <br />
               info@artcircle.royalcollege.lk
             </span>
-            <ArrowUpRight className="h-8 w-8 shrink-0" />
+            <IconArrowUpRight className="h-8 w-8 shrink-0" />
           </a>
         </div>
       </div>
