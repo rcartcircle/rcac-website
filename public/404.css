@@ -1,0 +1,232 @@
+:root {
+  --navy: #0f1d37;
+  --navy-soft: #1a2d52;
+  --gold: #d4a84c;
+  --gold-soft: #f6d98d;
+  --cream: #f4e9d8;
+  --text: #edf3ff;
+  --muted: rgba(237, 243, 255, 0.76);
+  --panel: rgba(15, 29, 55, 0.8);
+  --border: rgba(255, 255, 255, 0.12);
+  --shadow: rgba(9, 20, 38, 0.52);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "DM Sans", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, rgba(212, 168, 76, 0.18), transparent 24%),
+    linear-gradient(135deg, #091426 0%, #10213f 38%, #f4e9d8 100%);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.material-symbols-outlined {
+  font-size: 20px;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.not-found-header {
+  position: relative;
+  z-index: 2;
+  padding: 2rem 1.5rem 0;
+}
+
+.not-found-nav {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(10, 18, 34, 0.4);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 15px 35px rgba(7, 12, 20, 0.18);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 52px;
+}
+
+.brand img {
+  width: auto;
+  height: 42px;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 0.93rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--gold-soft);
+}
+
+.not-found-shell {
+  position: relative;
+  min-height: calc(100vh - 110px);
+  display: grid;
+  place-items: center;
+  padding: 3rem 1.5rem 5rem;
+}
+
+.not-found-card {
+  position: relative;
+  z-index: 1;
+  width: min(840px, 100%);
+  padding: clamp(2rem, 4vw, 4rem);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 2rem;
+  background: var(--panel);
+  box-shadow: 0 30px 80px var(--shadow);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(212, 168, 76, 0.45);
+  background: rgba(212, 168, 76, 0.12);
+  color: var(--gold-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.not-found-card h1 {
+  margin: 1.25rem 0 0.85rem;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  line-height: 0.95;
+  color: #ffffff;
+}
+
+.not-found-card p {
+  max-width: 40rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.8;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.primary-btn,
+.secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    background 0.2s ease;
+}
+
+.primary-btn {
+  background: var(--gold);
+  color: var(--navy);
+  box-shadow: 0 12px 35px rgba(212, 168, 76, 0.36);
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+  transform: translateY(-1px);
+}
+
+.secondary-btn {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+}
+
+.error-badge {
+  position: absolute;
+  right: clamp(1.5rem, 5vw, 8rem);
+  bottom: clamp(2rem, 6vw, 5rem);
+  display: grid;
+  place-items: center;
+  width: clamp(120px, 22vw, 220px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 168, 76, 0.4);
+  background: rgba(15, 29, 55, 0.65);
+  color: var(--gold-soft);
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  font-weight: 800;
+  letter-spacing: -0.08em;
+  box-shadow: 0 20px 50px rgba(9, 20, 38, 0.4);
+}
+
+@media (max-width: 760px) {
+  .not-found-nav {
+    border-radius: 1.25rem;
+    padding: 1rem;
+    flex-direction: column;
+  }
+
+  .nav-links {
+    gap: 0.7rem 1rem;
+  }
+
+  .brand {
+    width: 120px;
+  }
+
+  .not-found-shell {
+    padding-top: 2.25rem;
+  }
+
+  .error-badge {
+    position: static;
+    margin-top: 2rem;
+  }
+}

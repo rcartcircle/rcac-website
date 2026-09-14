@@ -1,0 +1,49 @@
+/* Image Section */
+
+.image-section {
+  font-family: 'Noto Sans Sinhala', sans-serif;
+}
+
+.figure {
+  border-radius: 10px;
+  background-color: var(--color-dark-grey);
+  color: var(--color-light-grey);
+  transition: all 0.3s ease;
+}
+.figure:hover {
+  filter: drop-shadow(-12px 18px 30px rgb(141, 22, 34, 0.3));
+  transform: scale(1.025, 1.025);
+}
+
+.figure a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.figure .image {
+  height: 300px;
+  border-radius: 10px 10px 0 0;
+  object-fit: cover;
+  object-position: center center;
+  transition: all 0.3s ease;
+}
+
+.figure .caption {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .figure:hover {
+    transform: none;
+  }
+  .figure:hover .image {
+    height: 250px;
+  }
+  .figure .image {
+    height: 200px;
+  }
+  .figure .caption {
+    font-size: 13px;
+  }
+}

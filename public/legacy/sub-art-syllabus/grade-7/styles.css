@@ -1,0 +1,36 @@
+/* IMPORT FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+/* IMPORT ELEMENT STYLES */
+@import url('/elements/grade-styles/background.css');
+@import url('/elements/grade-styles/card.css');
+@import url('/elements/grade-styles/header.css');
+@import url('/elements/navbar/navbar.css');
+
+/* IMPORT NAVIGATION STYLES */
+@import '/elements/navbar/navbar.css';
+@import '/elements/footer/footer.css';
+@import '/elements/scrollbar/scrollbar.css';
+
+
+/* ROOT VARIABLES */
+:root {
+  --primary-color: #212529;
+  --secondary-color: #31373d;
+  --background-color: #ebe2ec;
+  --text-color: white;
+  --hover-color: #212529;
+  --btn-background-color: #d2ccd3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(assets/background.png);
+}

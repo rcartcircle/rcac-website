@@ -1,0 +1,30 @@
+/* LESSON BREADCRUMB */
+
+.breadcrumb {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+  padding-right: 8px;
+  color: var(--color-grey);
+}
+
+.breadcrumb-item a {
+  color: var(--color-primary-dark);
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.breadcrumb-item.current {
+  color: var(--color-dark-grey);
+}

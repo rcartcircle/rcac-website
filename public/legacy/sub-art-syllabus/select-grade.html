@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Chithra Akura '24</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <!-- Google Material Icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+
+    <nav class="navbar">
+      <a href="/" class="logo" id="left-logo">
+        <img src="/assets/logo.png" alt="logo" />
+      </a>
+      <button class="menu-button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/art-syllabus" aria-current="page">Art Syllabus</a>
+
+        <a href="/" class="logo" id="center-logo">
+          <img src="/assets/logo.png" alt="logo" />
+        </a>
+
+        <a href="/learning-portal">Learning Portal</a>
+        <a
+          href="https://t.me/artpastpapersbot/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Papers Bot</a
+        >
+      </div>
+    </nav>
+
+    <script src="/elements/navbar/navbar.js"></script>
+
+    <!-- Background image -->
+    <div class="bg-image"></div>
+
+    <!-- Page Title image -->
+    <header class="select-grade-header">
+      <h4>Art Syllabus</h4>
+      <h1>Select Your Grade</h1>
+    </header>
+
+    <!-- Select Grade Buttons -->
+    <main>
+      <div class="container">
+        <div class="row mx-2 my-5 gy-5 gy-md-5 gx-5 justify-content-center">
+          <div class="col-12 col-md-6 col-lg-4">
+            <a href="grade-6/grade-6-main.html" class="card">
+              <div class="card-body">
+                <h5 class="card-title">Grade 6</h5>
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </div>
+              <div class="card-drop">
+                <h5 class="card-no">6</h5>
+              </div>
+            </a>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <a href="grade-7/grade-7-main.html" class="card">
+              <div class="card-body">
+                <h5 class="card-title">Grade 7</h5>
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </div>
+              <div class="card-drop">
+                <h5 class="card-no">7</h5>
+              </div>
+            </a>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <a href="grade-8/grade-8-main.html" class="card">
+              <div class="card-body">
+                <h5 class="card-title">Grade 8</h5>
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </div>
+              <div class="card-drop">
+                <h5 class="card-no">8</h5>
+              </div>
+            </a>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <a href="grade-9/grade-9-main.html" class="card">
+              <div class="card-body">
+                <h5 class="card-title">Grade 9</h5>
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </div>
+              <div class="card-drop">
+                <h5 class="card-no">9</h5>
+              </div>
+            </a>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <a href="grade-10/grade-10-main.html" class="card">
+              <div class="card-body">
+                <h5 class="card-title">Grade 10</h5>
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </div>
+              <div class="card-drop" id="card-drop-10">
+                <h5 class="card-no">10</h5>
+              </div>
+            </a>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <a href="grade-11/grade-11-main.html" class="card">
+              <div class="card-body">
+                <h5 class="card-title">Grade 11</h5>
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </div>
+              <div class="card-drop" id="card-drop-11">
+                <h5 class="card-no">11</h5>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+  </body>
+</html>

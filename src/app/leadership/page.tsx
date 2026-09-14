@@ -1,7 +1,7 @@
-import { Crown } from "lucide-react"
-import { Navbar } from "@/components/sections/navbar"
-import { Footer } from "@/components/sections/footer"
-import { Board } from "@/components/sections/board"
+import { Crown } from "lucide-react";
+import { Navbar } from "@/components/sections/navbar";
+import { Footer } from "@/components/sections/footer";
+import { Board } from "@/components/sections/board";
 
 export default function LeadershipPage() {
   return (
@@ -17,18 +17,14 @@ export default function LeadershipPage() {
 
         <div className="relative max-w-6xl mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-10 md:mb-14">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-navy/5 border border-navy/10 mb-6">
-              <Crown className="w-4 h-4 text-gold" />
-              <span className="text-sm text-navy/70 font-medium">Current Leadership</span>
-            </div>
-
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-navy mb-4 tracking-tight">
               <span className="text-navy">Current </span>
               <span className="text-gold">Leadership</span>
             </h1>
 
             <p className="text-lg text-navy/60 max-w-2xl mx-auto leading-relaxed">
-              Meet the teacher in-charge and the current board leading the Royal College Art Circle.
+              Meet the teacher in-charge and the current board leading the Royal
+              College Art Circle.
             </p>
           </div>
 
@@ -53,14 +49,14 @@ export default function LeadershipPage() {
                   <p className="text-cream/70 text-sm mb-2">
                     Senior Art Teacher
                   </p>
-                  <p className="text-cream/50 text-sm">
-                    Royal College
-                  </p>
+                  <p className="text-cream/50 text-sm">Royal College</p>
                 </div>
               </div>
 
               <blockquote className="mt-6 max-w-2xl text-cream/80 italic border-l-2 border-gold pl-4 text-sm leading-relaxed">
-                &quot;Art is not what you see, but what you make others see. Our mission is to help every student discover their unique artistic voice.&quot;
+                &quot;Art is not what you see, but what you make others see. Our
+                mission is to help every student discover their unique artistic
+                voice.&quot;
               </blockquote>
             </div>
           </div>
@@ -70,5 +66,5 @@ export default function LeadershipPage() {
       <Board />
       <Footer />
     </main>
-  )
+  );
 }

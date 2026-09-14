@@ -1,0 +1,76 @@
+/* LESSON LISTS STYLES */
+
+.lesson-ul, .lesson-ol {
+  padding: 10px 0;
+}
+
+.lesson-ul li, .lesson-ol li {
+  padding: 10px 0;
+  font-family: 'Noto Sans Sinhala', sans-serif;
+}
+
+.lesson-inline-ul, .lesson-inline-ol {
+  width: fit-content;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  margin-left: 65px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 60px;
+  padding-right: 125px;
+  border-radius: 8px;
+  color: var(--color-primary-dark);
+  background-color: var(--color-background);
+}
+
+.lesson-inline-ul li, .lesson-inline-ol li {
+  position: relative;
+  padding: 5px 0 5px 0;
+}
+
+.lesson-dl {
+  font-family: 'Noto Sans Sinhala', sans-serif;
+}
+
+.lesson-dl dt {
+  font-weight: 650;
+  padding: 15px 0;
+}
+
+.lesson-dl dd {
+  padding: 25px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  background-color: var(--color-background);
+}
+
+
+@media (max-width: 600px) {
+  .lesson-ul, .lesson-ol {
+    font-size: 16px;
+  }
+  .lesson-inline-ul, .lesson-inline-ol {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 45px;
+    padding-right: 30px;
+    border-radius: 8px;
+  }
+  .lesson-inline-ul li, .lesson-inline-ol li {
+    font-size: 0.9rem;
+  }
+  .lesson-dl {
+    font-size: 14px;
+  }
+  .lesson-dl dt {
+    padding: 15px 0;
+  }
+  .lesson-dl dd {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+}
