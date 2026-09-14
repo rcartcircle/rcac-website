@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Chithra Akura 2024
+
+Upgraded website portal for the Chithra Akura '24 project.
+
+## Project
+
+Chithra Akura is a Royal College Art Circle project created to support art education, creative exploration, and student collaboration.
+
+## Credits
+
+### Fonts
+
+- [DM Sans](https://fonts.google.com/specimen/DM+Sans)
+- [Abhaya Libre](https://fonts.google.com/specimen/Abhaya+Libre)
+- [Noto Sans Sinhala](https://fonts.google.com/noto/specimen/Noto+Sans+Sinhala)
+
+### Image Sources
+
+- Main image: [VFX of Nim](https://www.artstation.com/artwork/XBbXo3)
+- Lesson images: [Alamy Photos](https://www.alamy.com)
 
 ## Getting Started
 
-First, run the development server:
+Install [Git](https://git-scm.com/downloads) and create a [GitHub](https://github.com/) account. Sign in to GitHub through VS Code.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+For additional guidance, watch this [Git and GitHub tutorial playlist](https://www.youtube.com/playlist?list=PL4cUxeGkcC9goXbgTDQ0n_4TBzOO0ocPR).
+
+Open the VS Code terminal with <kbd>Ctrl</kbd> + <kbd>J</kbd>, then navigate to the project directory:
+
+```sh
+cd D:/art-circle/chithra-akura-new
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Clone the repository:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+git clone <repository-url>
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a working branch:
 
-## Learn More
+```sh
+git checkout -b <branch-name>
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Editing Workflow
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Check the active branch before making or committing changes:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```sh
+git branch
+```
 
-## Deploy on Vercel
+After editing, stage and commit the changes:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```sh
+git add .
+git commit -m "short title for your changes"
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Push the branch to the remote repository:
+
+```sh
+git push origin <your-branch-name>
+```
+
+For questions or uncertain changes, ask for assistance before proceeding.
+
+## Workflow
+
+```mermaid
+flowchart TD
+  A[Clone repository] --> B[Create branch]
+  B --> C[Make changes]
+  C --> D[Commit changes]
+  D --> E[Push branch]
+  E --> F[Open collaboration workflow]
+```
