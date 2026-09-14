@@ -1,0 +1,30 @@
+/* LESSON BACK ARROW STYLES */
+
+.back-arrow {
+  position: absolute;
+  top: 95px;
+  left: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  border: solid 2px var(--color-background);
+  border-radius: 25px;
+  transition: all 0.3s ease-out;
+
+  span a {
+    font-size: 32px;
+    color: var(--color-background);
+    padding: 4px auto;
+    text-decoration: none;
+    transition: all 0.3s ease-out;
+  }
+}
+
+.back-arrow:hover {
+  border: solid 2px var(--color-primary-light);
+
+  span a {
+    color: var(--color-primary-light);
+  }
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Chithra Akura '24</title>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  
+  <!-- Google Material Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+        <a href="/" class="logo" id="left-logo">
+            <img src="/assets/logo.png" alt="logo" />
+        </a>
+        <button class="menu-button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/art-syllabus">Art Syllabus</a>
+
+            <a href="/" class="logo" id="center-logo">
+                <img src="/assets/logo.png" alt="logo" />
+            </a>
+
+            <a href="/learning-portal" aria-current="page">Learning Portal</a>
+            <a href="https://t.me/artpastpapersbot/" target="_blank" rel="noopener noreferrer">Art Papers Bot</a>
+        </div>
+    </nav>
+
+    <script src="/elements/navbar/navbar.js"></script>
+
+    <!-- Background image -->
+    <div class="bg-image"></div>
+
+    <!-- Page Title image -->
+    <header class="learning-portal-header mx-5">
+      <h4>Self-Learning Portal</h4>
+      <h1>Select Your Topic</h1>
+    </header>
+
+    <!-- Card Topics -->
+    <section class="card-section">
+        <div class="container">
+            <div class="row mx-0 mx-md-2 my-5 gx-5 gy-4 gy-md-5 justify-content-center">
+                <div class="col-12 col-md-6">
+                    <a href="https://sites.google.com/view/rcac-graphic-design/" target="_blank" class="card" id="graphic-design-site">
+                        <div class="card-body">
+                            <h2 class="card-title">Graphic Design</h2>
+                        </div>
+                        <div class="card-icon">
+                            <span class="material-symbols-outlined">draw</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-12 col-md-6">
+                    <a href="https://sites.google.com/view/rcac-sculpting/" target="_blank" class="card" id="sculpting-site">
+                        <div class="card-body">
+                            <h2 class="card-title">Sculpting</h2>
+                        </div>
+                        <div class="card-icon">
+                            <span class="material-symbols-outlined">Owl</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-12 col-md-6">
+                    <a href="https://sites.google.com/view/rcac-architecture/" target="_blank" class="card" id="architecture-site">
+                        <div class="card-body">
+                            <h2 class="card-title">Architecture</h2>
+                        </div>
+                        <div class="card-icon">
+                            <span class="material-symbols-outlined">Architecture</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-12 col-md-6">
+                    <a href="https://sites.google.com/view/rcac-fashion-and-textiles/" target="_blank" class="card" id="fashion-site">
+                        <div class="card-body">
+                            <h2 class="card-title">Fashion & Textiles</h2>
+                        </div>
+                        <div class="card-icon">
+                            <span class="material-symbols-outlined">Styler</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-12 col-md-6">
+                    <a href="https://sites.google.com/view/rcac-vehicle-designing/" target="_blank" class="card" id="vehicle-design-site">
+                        <div class="card-body">
+                            <h2 class="card-title">Vehicle Design</h2>
+                        </div>
+                        <div class="card-icon">
+                            <span class="material-symbols-outlined">Snowmobile</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-12 col-md-6">
+                    <a href="https://sites.google.com/view/rcac-cartoon-art/" target="_blank" class="card" id="cartoon-art-site">
+                        <div class="card-body">
+                            <h2 class="card-title">Cartoon Art</h2>
+                        </div>
+                        <div class="card-icon">
+                            <span class="material-symbols-outlined">Smart_Toy</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-12 col-md-6">
+                    <a href="https://sites.google.com/view/rcac-efd/" target="_blank" class="card" id="environmental-design-site">
+                        <div class="card-body">
+                            <h2 class="card-title">Environmental Friendly Design</h2>
+                        </div>
+                        <div class="card-icon">
+                            <span class="material-symbols-outlined">Public</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+  
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Custom JS -->
+    <script src="scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

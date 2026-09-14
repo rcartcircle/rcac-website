@@ -1,0 +1,12 @@
+/* SELECT-LESSON BACKGROUND IMAGE */
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  overflow: auto;
+  width: 100%;
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  opacity: 1;
+}

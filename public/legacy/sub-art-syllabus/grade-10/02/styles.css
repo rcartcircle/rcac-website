@@ -1,0 +1,84 @@
+/* IMPORT FONTS */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@100..900&display=swap');
+
+/* IMPORT NAVIGATION STYLES */
+@import '/elements/navbar/navbar.css';
+@import '/elements/footer/footer.css';
+
+/* IMPORT ELEMENT STYLES */
+@import '/elements/lesson-styles/back-arrow.css';
+@import '/elements/lesson-styles/background.css';
+@import '/elements/lesson-styles/breadcrumb.css';
+@import '/elements/lesson-styles/content-table.css';
+@import '/elements/lesson-styles/hero.css';
+@import '/elements/lesson-styles/image-section.css';
+@import '/elements/lesson-styles/lists.css';
+@import '/elements/lesson-styles/main-image.css';
+@import '/elements/lesson-styles/related-links.css';
+@import '/elements/lesson-styles/scrollbar.css';
+@import '/elements/lesson-styles/texts.css';
+
+/* ROOT VARIABLES */
+:root {
+  --color-white: #ffffff;
+  --color-grey: grey;
+  --color-dark-grey: #31373d;
+  --color-darker-grey: #212529;
+  --color-light-grey: #dcdddf;
+  --color-background: #fcfcfc;
+  --color-primary: #ba8e5e;
+  --color-primary-light: #d9c0a6;
+  --color-primary-dark: #8f673d;
+
+  --_mesh-gradient-blur: 100px;
+  --_mesh-gradient-blend-mode: screen;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Abhaya Libre', sans-serif;
+}
+
+
+/* HEADER */
+
+.lesson-hero {
+  background-image: url(header.png);
+  background-position: center center;
+}
+
+/* MAIN CONTENT*/
+
+.main-content {
+  width: 75%;
+  margin: 0 auto;
+  font-size: 1.15rem;
+}
+
+@media (max-width: 600px) {
+  .main-content {
+    font-size: 1rem;
+  }
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,107 @@
+/* SELECT-LESSON CARD DESIGN */
+
+.card {
+  min-height: 180px;
+  padding: 4px 10px 0 18px;
+  text-decoration: none;
+  background-color: rgba(131, 112, 185, 0.6);
+  border-radius: 32px;
+  border: 1px solid transparent;
+  backdrop-filter: blur(24px);
+  box-shadow: 0 12px 48px rgba(29, 30, 31, 0.1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s ease-out;
+  animation: floatUp 1s ease-out;
+}
+.card:hover {
+  transform: translate(0, -5px);
+  border: 1px solid rgba(225, 206, 252, 0.3);
+}
+
+.card-body {
+  font-family: 'Abhaya Libre', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* CARD TITLES */
+
+.card-body .card-title {
+  font-size: 28px;
+  font-weight: 500;
+  color: #e1d9eb;
+}
+.card-body .card-subtitle {
+  font-size: 20px;
+  font-weight: 300;
+  color: #e1cefc;
+}
+
+/* CARD BACKDROP */
+
+.card-drop img {
+  width: 100px;
+  height: auto;
+  transition: all 0.4s ease-out;
+}
+.card:hover > .card-drop img {
+  transform: rotate(-1deg) scale3d(1.1, 1.1, 1.1);
+}
+
+#vesak-lantern {
+  filter: hue-rotate(180deg);
+}
+
+/* CARD ANIMATIONS */
+
+@keyframes floatUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes floatLeft {
+  from {
+    transform: translateX(-25px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* CARD RESPONSIVE */
+
+@media screen and (max-width: 768px) {
+  .card {
+    min-height: 160px;
+    padding: 8px 10px 0 12px;
+    backdrop-filter: blur(12px);
+  }
+  .card-body {
+    font-family: 'Abhaya Libre', sans-serif;
+    gap: 8px;
+  }
+  .card-body .card-title {
+    font-size: 20px;
+  }
+  .card-body .card-subtitle {
+    font-size: 16px;
+  }
+  .card-drop img {
+    width: 80px;
+  }
+}

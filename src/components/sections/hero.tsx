@@ -1,153 +1,175 @@
-"use client"
+"use client";
 
-import { AnimatedCounter } from "@/components/animated-counter"
-import { countProjectsByStatus } from "@/lib/project-stats"
-import { useEffect, useRef, useState } from "react"
-
-function FloatingShape({ delay, duration, className }: { delay: number; duration: number; className: string }) {
-  return (
-    <div
-      className={`absolute pointer-events-none ${className}`}
-      style={{
-        animation: `float ${duration}s ease-in-out ${delay}s infinite`,
-      }}
-    />
-  )
-}
+import Image from "next/image";
+import {
+  IconArrowDownRight,
+  IconCheck,
+  IconClock,
+  IconSparkles,
+} from "@tabler/icons-react";
+import { useEffect, useRef, useState } from "react";
+import { AnimatedCounter } from "@/components/animated-counter";
+import { countProjectsByStatus } from "@/lib/project-stats";
 
 function PaintBrushCursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 })
-  const [isHovering, setIsHovering] = useState(false)
-  const trailRef = useRef<{ x: number; y: number }[]>([])
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+  const trailRef = useRef<{ x: number; y: number }[]>([]);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY })
-      trailRef.current = [...trailRef.current.slice(-8), { x: e.clientX, y: e.clientY }]
-    }
+    const heroSection = document.getElementById("hero-section");
+    if (!heroSection) return;
 
-    const handleMouseEnter = () => setIsHovering(true)
-    const handleMouseLeave = () => setIsHovering(false)
+    const handleMouseMove = (event: MouseEvent) => {
+      setPosition({ x: event.clientX, y: event.clientY });
+      trailRef.current = [
+        ...trailRef.current.slice(-5),
+        { x: event.clientX, y: event.clientY },
+      ];
+    };
+    const handleMouseEnter = () => setIsHovering(true);
+    const handleMouseLeave = () => setIsHovering(false);
 
-    const heroSection = document.getElementById("hero-section")
-    if (heroSection) {
-      heroSection.addEventListener("mousemove", handleMouseMove)
-      heroSection.addEventListener("mouseenter", handleMouseEnter)
-      heroSection.addEventListener("mouseleave", handleMouseLeave)
-    }
+    heroSection.addEventListener("mousemove", handleMouseMove);
+    heroSection.addEventListener("mouseenter", handleMouseEnter);
+    heroSection.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      if (heroSection) {
-        heroSection.removeEventListener("mousemove", handleMouseMove)
-        heroSection.removeEventListener("mouseenter", handleMouseEnter)
-        heroSection.removeEventListener("mouseleave", handleMouseLeave)
-      }
-    }
-  }, [])
+      heroSection.removeEventListener("mousemove", handleMouseMove);
+      heroSection.removeEventListener("mouseenter", handleMouseEnter);
+      heroSection.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
 
-  if (!isHovering) return null
+  if (!isHovering) return null;
 
   return (
     <div
-      className="fixed pointer-events-none z-50 transition-transform duration-75"
-      style={{ left: position.x - 12, top: position.y - 12 }}
+      className="pointer-events-none fixed z-50 transition-transform duration-75"
+      style={{ left: position.x - 10, top: position.y - 10 }}
     >
-      <div className="w-6 h-6 rounded-full bg-gold/40 blur-sm" />
+      <div className="h-5 w-5 border border-gold bg-cream/70 shadow-[0_0_20px_rgba(212,168,76,0.7)]" />
     </div>
-  )
+  );
 }
 
+const statusItems = [
+  ["Completed", "bg-status-completed", IconCheck],
+  ["Ongoing", "bg-status-ongoing", IconClock],
+  ["Upcoming", "bg-status-upcoming", IconSparkles],
+] as const;
+
 export function Hero() {
-  const completedCount = countProjectsByStatus("completed")
-  const ongoingCount = countProjectsByStatus("ongoing")
-  const upcomingCount = countProjectsByStatus("upcoming")
+  const completedCount = countProjectsByStatus("completed");
+  const ongoingCount = countProjectsByStatus("ongoing");
+  const upcomingCount = countProjectsByStatus("upcoming");
+  const counts = [completedCount, ongoingCount, upcomingCount];
 
   return (
-    <>
+    <section
+      id="hero-section"
+      className="relative min-h-screen overflow-hidden bg-cream text-navy"
+    >
       <PaintBrushCursor />
-      
-      <section 
-        id="hero-section"
-        className="min-h-screen flex flex-col justify-center items-center px-6 py-20 relative overflow-hidden bg-cream"
-      >
-        {/* Decorative floating shapes */}
-        <FloatingShape delay={0} duration={6} className="top-20 left-[10%] w-16 h-16 border-2 border-gold/30 rounded-full" />
-        <FloatingShape delay={1} duration={8} className="top-32 right-[15%] w-8 h-8 bg-navy/10 rotate-45" />
-        <FloatingShape delay={2} duration={7} className="bottom-40 left-[20%] w-12 h-12 border-2 border-navy/20" />
-        <FloatingShape delay={0.5} duration={9} className="bottom-32 right-[10%] w-20 h-20 border border-gold/20 rounded-full" />
-        <FloatingShape delay={1.5} duration={6} className="top-1/2 left-[5%] w-6 h-6 bg-gold/20 rounded-full" />
-        <FloatingShape delay={3} duration={8} className="top-1/3 right-[8%] w-10 h-10 border border-navy/15 rotate-12" />
-        
-        {/* Main decorative circle */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[700px] md:h-[700px] pointer-events-none">
-          <div className="absolute inset-0 border border-navy/10 rounded-full" />
-          <div className="absolute inset-8 border border-gold/15 rounded-full" />
-          <div className="absolute inset-16 border border-navy/5 rounded-full" />
-        </div>
-        
-        <div className="relative z-10 text-center max-w-4xl mx-auto">
-          {/* Small decorative element */}
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <div className="w-16 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
-            <div className="w-2 h-2 bg-gold rotate-45" />
-            <div className="w-16 h-px bg-gradient-to-r from-transparent via-gold to-transparent" />
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 font-serif">
-            <span className="text-navy block">Royal College</span>
-            <span className="shimmer-text block">Art Circle</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-gold mb-4 italic font-medium tracking-wide">
-            #AlwaysInAUniqueWay
-          </p>
-          
-          <p className="text-navy/70 text-lg max-w-2xl mx-auto mb-16 leading-relaxed">
-            Fostering creativity, inspiring minds, and shaping the future of artistic expression since 1995.
-          </p>
-          
-          {/* Stats with enhanced styling */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-16 max-w-3xl mx-auto">
-            <div className="group">
-              <div className="relative p-6 rounded-2xl bg-card border border-border hover:border-gold/50 transition-all duration-300 hover:shadow-lg hover:shadow-gold/10">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-status-completed rounded-full flex items-center justify-center">
-                  <svg className="w-4 h-4 text-card" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <AnimatedCounter end={completedCount} label="Completed" />
-              </div>
+      <div className="absolute inset-y-0 right-0 w-full md:w-[58%]">
+        <Image
+          src="/assets/hero-bg.png"
+          alt=""
+          fill
+          priority
+          className="object-cover object-center opacity-30"
+        />
+      </div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-[58%] backdrop-blur-[18px] [mask-image:linear-gradient(to_right,black_0%,black_62%,transparent_100%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,rgba(247,244,235,0.99)_0%,rgba(247,244,235,0.92)_22%,rgba(247,244,235,0.58)_42%,transparent_72%),radial-gradient(circle_at_0%_50%,rgba(247,244,235,0.97)_0%,rgba(247,244,235,0.84)_20%,rgba(247,244,235,0.38)_44%,transparent_72%),radial-gradient(circle_at_0%_100%,rgba(247,244,235,0.99)_0%,rgba(247,244,235,0.9)_22%,rgba(247,244,235,0.52)_44%,transparent_74%)]" />
+
+      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-[1440px] flex-col justify-between px-6 pb-8 pt-32 sm:px-10 lg:px-16">
+        <div className="grid flex-1 items-center gap-14 lg:grid-cols-[minmax(0,0.9fr)_minmax(360px,0.75fr)]">
+          <div className="max-w-3xl">
+            <div className="mb-8 flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.28em] text-navy/65">
+              <span className="h-px w-14 bg-gold" />
+              Royal College · Est. 1995
             </div>
-            <div className="group">
-              <div className="relative p-6 rounded-2xl bg-card border border-border hover:border-gold/50 transition-all duration-300 hover:shadow-lg hover:shadow-gold/10">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-status-ongoing rounded-full flex items-center justify-center">
-                  <svg className="w-4 h-4 text-card" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <AnimatedCounter end={ongoingCount} label="Ongoing" />
-              </div>
-            </div>
-            <div className="group">
-              <div className="relative p-6 rounded-2xl bg-card border border-border hover:border-gold/50 transition-all duration-300 hover:shadow-lg hover:shadow-gold/10">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-status-upcoming rounded-full flex items-center justify-center">
-                  <svg className="w-4 h-4 text-card" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <AnimatedCounter end={upcomingCount} label="Upcoming" />
-              </div>
+            <h1 className="font-serif text-[clamp(4rem,10vw,9.5rem)] font-bold leading-[0.82] tracking-[-0.06em] text-navy">
+              <span className="block">Royal</span>
+              <span className="block text-gold">College</span>
+              <span className="block text-navy/95">Art Circle</span>
+            </h1>
+            <div className="mt-10 flex max-w-xl flex-col gap-7 border-l border-gold/70 pl-5 sm:flex-row sm:items-end sm:gap-10">
+              <p className="max-w-md text-base leading-7 text-navy/70 md:text-lg">
+                A living archive of making, learning, and looking closer. A
+                student-led home for artistic expression.
+              </p>
+              <a
+                href="#projects"
+                className="group inline-flex shrink-0 items-center gap-3 text-sm font-semibold uppercase tracking-[0.16em] text-navy"
+              >
+                Explore the work
+                <IconArrowDownRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
+              </a>
             </div>
           </div>
-        </div>
-        
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-navy/30 rounded-full flex justify-center pt-2">
-            <div className="w-1.5 h-1.5 bg-gold rounded-full animate-pulse" />
+
+          <div className="relative mx-auto w-full max-w-md lg:mr-0">
+            <div className="absolute -inset-4 border border-gold/45" />
+            <div className="relative overflow-hidden border border-navy/20 bg-cream/75 p-5 shadow-[0_24px_70px_rgba(25,38,73,0.14)] backdrop-blur-sm sm:p-7">
+              <div className="flex items-start justify-between border-b border-navy/15 pb-5">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.24em] text-navy/55">
+                    Field notes / 01
+                  </p>
+                  <p className="mt-2 font-serif text-2xl text-navy">
+                    The making continues.
+                  </p>
+                </div>
+                <span className="text-xs text-navy/45">RCAC</span>
+              </div>
+              <div className="grid grid-cols-2 gap-5 py-7 text-sm text-navy/65">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.16em] text-navy/45">
+                    Practice
+                  </p>
+                  <p className="mt-2 text-navy">Art · Design · Culture</p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.16em] text-navy/45">
+                    Direction
+                  </p>
+                  <p className="mt-2 text-navy">Always in a unique way</p>
+                </div>
+              </div>
+              <div className="relative aspect-[4/3] overflow-hidden border border-navy/15">
+                <Image
+                  src="/assets/hero-bg.png"
+                  alt=""
+                  fill
+                  className="object-cover object-[68%_48%]"
+                />
+                <div className="absolute inset-0 bg-navy/15" />
+                <span className="absolute bottom-4 left-4 bg-cream/90 px-3 py-2 text-xs uppercase tracking-[0.18em] text-navy">
+                  #AlwaysInAUniqueWay
+                </span>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-    </>
-  )
+
+        <div className="mt-16 grid border-t border-navy/20 sm:grid-cols-3">
+          {statusItems.map(([label, color, Icon], index) => (
+            <div
+              key={label}
+              className="flex items-center gap-4 border-b border-navy/20 py-5 sm:border-b-0 sm:border-r sm:px-7 sm:first:pl-0 sm:last:border-r-0"
+            >
+              <span
+                className={`flex h-9 w-9 items-center justify-center text-navy`}
+              >
+                <Icon className="h-8 w-auto" />
+              </span>
+              <AnimatedCounter end={counts[index]} label={label} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

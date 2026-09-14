@@ -1,0 +1,61 @@
+/* LESSON HERO & TITLE STYLES */
+
+.lesson-hero {
+  font-family: 'abhaya libre', sans-serif;
+  display: flex;
+  align-items: end;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100%;
+  color: var(--color-white);
+}
+
+.lesson-hero .grad-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(to bottom, transparent, rgba(15, 15, 15, 0.7));
+}
+
+.lesson-title {
+  z-index: 1;
+  margin: auto auto 90px auto;
+  padding: 0 20px;
+  animation: floatUp 0.8s ease-out;
+}
+
+.lesson-title .lesson-no {
+  font-weight: 200;
+}
+
+.lesson-title h1 {
+  font-size: 56px;
+  color: white;
+  text-align: center;
+}
+
+
+@media (max-width: 768px) {
+  .lesson-title {
+    padding: 0 30px;
+  }
+  .lesson-title h1 {
+    font-size: 2.5rem;
+  }
+}
+
+
+@keyframes floatUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,218 @@
+/* IMPORT FONTS */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@100..900&display=swap");
+
+/* IMPORT NAVIGATION STYLES */
+@import url("/elements/navbar/navbar.css");
+@import url("/elements/footer/footer.css");
+@import url("/elements/scrollbar/scrollbar.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background-color: #e2e6ec;
+}
+
+main > .container {
+  width: min(100% - 2rem, 1200px);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+main > .container > .row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  margin: 0 !important;
+}
+
+main > .container > .row > [class*="col-"] {
+  width: auto;
+  max-width: none;
+  padding: 0;
+  min-width: 0;
+}
+
+/* Background Image */
+
+.bg-image {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: url(assets/background-2.png);
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  opacity: 0.9;
+}
+
+/* HEADER */
+
+.select-grade-header {
+  margin-top: 124px;
+}
+
+.select-grade-header h4 {
+  font-size: 18px;
+  font-weight: 300;
+  color: #c7ade9;
+  text-align: center;
+  margin-top: 180px;
+  animation: floatUp 0.8s ease-out;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.select-grade-header h1 {
+  font-size: 48px;
+  color: #c7ade9;
+  text-align: center;
+  margin-top: 24px;
+  animation: floatUp 0.9s ease-out;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* CARD DESIGN */
+
+main {
+  margin-bottom: 100px;
+}
+
+.card {
+  width: 100%;
+  height: 200px;
+  padding: 0 0 4px 12px;
+  text-decoration: none;
+  background-color: rgba(182, 181, 197, 0.2);
+  border-radius: 32px;
+  border: none;
+  backdrop-filter: blur(24px);
+  box-shadow: 0 12px 48px rgba(29, 30, 31, 0.1);
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s ease-out;
+  animation: floatUp 1s ease-out;
+}
+.card:hover {
+  transform: scale3d(1.05, 1.05, 1.05);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+}
+
+/* CARD TITLE */
+
+.card-body .card-title {
+  font-size: 36px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+/* CARD ARROW */
+
+.card-body span {
+  opacity: 0;
+  font-size: 48px;
+  font-weight: 500;
+  color: #ffffff;
+  transition: all 0.6s ease-out;
+}
+.card:hover span {
+  opacity: 1;
+  transition: all 0.6s ease-out;
+  animation: floatLeft 0.6s ease-out;
+}
+.card:not(:hover) span {
+  transition: all 0.6s ease-out;
+  transform: translate(-25px);
+}
+
+/* CARD BACKDROP */
+
+.card-drop .card-no {
+  position: absolute;
+  top: -25px;
+  right: -10px;
+  font-size: 324px;
+  line-height: 0.8;
+  font-weight: 500;
+  letter-spacing: -16px;
+  color: rgba(226, 231, 248, 0.25);
+}
+#card-drop-10 .card-no {
+  letter-spacing: -18px;
+  right: -60px;
+}
+#card-drop-11 .card-no {
+  letter-spacing: -10px;
+  right: -4px;
+}
+
+/* CARD ANIMATIONS */
+
+@keyframes floatUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes floatLeft {
+  from {
+    transform: translateX(-25px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* CARD RESPONSIVE */
+
+@media screen and (max-width: 768px) {
+  main > .container {
+    width: min(100% - 1.5rem, 560px);
+  }
+
+  main > .container > .row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .card {
+    height: 160px;
+    padding: 0 0 4px 12px;
+  }
+  .card-drop .card-no,
+  .card-drop-large .card-no {
+    font-size: 308px;
+  }
+}

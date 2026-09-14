@@ -1,0 +1,15 @@
+/* LESSON TEXTS STYLES */
+
+.lesson-content {
+  line-height: 1.6;
+}
+
+.lesson-content h3 {
+  padding: 20px 0;
+  color: var(--color-primary-dark);
+  font-weight: 600;
+}
+
+.lesson-content p b {
+  font-weight: 600;
+}

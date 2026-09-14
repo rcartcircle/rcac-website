@@ -1,0 +1,31 @@
+/* LESSON RELATED LINKS */
+
+.related-links {
+  margin-top: 60px;
+}
+
+.button-group .btn {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  width: fit-content;
+  border: solid 2px var(--color-primary-dark);
+  background-color: transparent;
+  color: var(--color-primary-dark);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button-group .btn:hover {
+  border: solid 2px var(--color-primary);
+  color: var(--color-primary);
+}
+
+.button-group .btn p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin: 0;
+}

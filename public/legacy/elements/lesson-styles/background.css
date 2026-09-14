@@ -1,0 +1,17 @@
+/* LESSON BACKGROUND STYLES */
+
+body {
+  background-color:hsla(186,0%,99%,1);
+  background-image:
+  radial-gradient(at 97% 94%, hsla(14,91%,73%,1) 0px, transparent 50%),
+  radial-gradient(at 1% 0%, hsla(18,63%,77%,1) 0px, transparent 50%),
+  radial-gradient(at 91% 5%, hsla(72,70%,70%,1) 0px, transparent 50%),
+  radial-gradient(at 100% 100%, hsla(41,66%,78%,1) 0px, transparent 50%),
+  radial-gradient(at 47% 100%, hsla(54,97%,66%,1) 0px, transparent 50%),
+  radial-gradient(at 100% 100%, hsla(281,72%,76%,1) 0px, transparent 50%),
+  radial-gradient(at 90% 6%, hsla(242,78%,76%,1) 0px, transparent 50%);
+  background-blend-mode: luminosity;
+  background-size: 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}

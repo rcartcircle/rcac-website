@@ -1,0 +1,18 @@
+/* LESSON MAIN IMAGE */
+
+.main-image {
+  margin: 20px 0;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.main-image-link .main-image {
+  height: 500px;
+  width: auto;
+}
+
+.main-image:hover {
+  filter: drop-shadow(-12px 18px 30px rgb(141, 22, 34, 0.3));
+  transform: scale(1.025, 1.025);
+}
