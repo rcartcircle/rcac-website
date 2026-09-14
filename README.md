@@ -1,10 +1,6 @@
-# Chithra Akura 2024
+RCAC Website
 
-Upgraded website portal for the Chithra Akura '24 project.
-
-## Project
-
-Chithra Akura is a Royal College Art Circle project created to support art education, creative exploration, and student collaboration.
+Newly developed website for Royal College Art Circles
 
 ## Credits
 
