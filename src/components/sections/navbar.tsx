@@ -60,9 +60,9 @@ export function Navbar() {
                 src="/logo.png"
                 alt="Royal College Art Circle"
                 width={120}
-                height={40}
+                height={50}
                 className="object-contain"
-                style={{ width: "120px", height: "40px" }}
+                style={{ width: "auto", height: "50px" }}
                 priority
               />
               <span className="sr-only">Royal College Art Circle</span>
@@ -75,7 +75,7 @@ export function Navbar() {
                   <Link
                     key={item.label}
                     href={resolveHref(item.href)}
-                    className="text-sm text-navy/70 hover:text-gold transition-colors relative group"
+                    className="text-sm font-bold text-navy/90 hover:text-gold transition-colors relative group"
                   >
                     {item.label}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full" />
@@ -84,7 +84,7 @@ export function Navbar() {
                   <Link
                     key={item.label}
                     href={resolveHref(item.href)}
-                    className="text-sm text-navy/70 hover:text-gold transition-colors relative group"
+                    className="text-sm font-bold text-navy/90 hover:text-gold transition-colors relative group"
                   >
                     {item.label}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full" />
