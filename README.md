@@ -1,6 +1,6 @@
-RCAC Website
+# RCAC Website
 
-Newly developed website for Royal College Art Circles
+Newly developed website for Royal College Art Circle
 
 ## Credits
 
