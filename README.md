@@ -1,74 +1,83 @@
-# RCAC Website
+# Royal College Art Circle
 
-Newly developed website for Royal College Art Circle
+The official website for the Royal College Art Circle (RCAC), a student-led
+art society at Royal College. The site presents the circle's history, current
+projects, leadership, art-learning resources, and contact information.
 
-## Credits
+## What is included
 
-### Fonts
+- A responsive home page with the RCAC introduction, project catalogue, live
+  project-status counts, and contact form.
+- Current leadership and teacher-in-charge information at `/leadership`.
+- A historical board archive at `/past-boards`.
+- Grade 6 to Grade 11 syllabus links at `/art-syllabus`.
+- Learning tracks for graphic design, sculpting, architecture, fashion and
+  textiles, vehicle design, and environmentally friendly design at
+  `/learning-portal`.
 
-- [DM Sans](https://fonts.google.com/specimen/DM+Sans)
-- [Abhaya Libre](https://fonts.google.com/specimen/Abhaya+Libre)
-- [Noto Sans Sinhala](https://fonts.google.com/noto/specimen/Noto+Sans+Sinhala)
+## Tech stack
 
-### Image Sources
+- Next.js 16 with the App Router
+- React 19 and TypeScript
+- Tailwind CSS 4
+- Radix UI, shadcn/ui, Lucide, and Tabler Icons
+- Vercel Analytics in production builds
 
-- Main image: [VFX of Nim](https://www.artstation.com/artwork/XBbXo3)
-- Lesson images: [Alamy Photos](https://www.alamy.com)
+## Requirements
 
-## Getting Started
+- Node.js with npm
+- A local clone of this repository
 
-Install [Git](https://git-scm.com/downloads) and create a [GitHub](https://github.com/) account. Sign in to GitHub through VS Code.
+## Run locally
 
-For additional guidance, watch this [Git and GitHub tutorial playlist](https://www.youtube.com/playlist?list=PL4cUxeGkcC9goXbgTDQ0n_4TBzOO0ocPR).
-
-Open the VS Code terminal with <kbd>Ctrl</kbd> + <kbd>J</kbd>, then navigate to the project directory:
-
-```sh
-cd D:/art-circle/chithra-akura-new
-```
-
-Clone the repository:
-
-```sh
-git clone <repository-url>
-```
-
-Create a working branch:
+Install dependencies, start the development server, and open
+`http://localhost:3000`:
 
 ```sh
-git checkout -b <branch-name>
+npm install
+npm run dev
 ```
 
-## Editing Workflow
-
-Check the active branch before making or committing changes:
+Available scripts:
 
 ```sh
-git branch
+npm run dev       # Start the development server
+npm run lint      # Run ESLint
+npm run build     # Create a production build
+npm run start     # Serve the production build locally
 ```
 
-After editing, stage and commit the changes:
+## Project structure
 
-```sh
-git add .
-git commit -m "short title for your changes"
+```text
+src/
+  app/             App Router pages and route redirects
+  components/      Shared sections and UI components
+  data/             Project and past-board content
+  lib/              Shared utilities and project statistics
+public/
+  assets/           Images, icons, and other static assets
+  legacy/           Existing HTML/CSS/JS learning resources
 ```
 
-Push the branch to the remote repository:
+## Updating content
 
-```sh
-git push origin <your-branch-name>
-```
+- Homepage projects and their statuses: `src/data/projects-2026.json`
+- Past board members and themes: `src/data/past-boards.json`
+- Homepage sections: `src/components/sections/`
+- Page routes: `src/app/`
+- Static images and legacy resources: `public/`
 
-For questions or uncertain changes, ask for assistance before proceeding.
+The learning portal links to separate Google Sites resources. Update those
+links in `src/app/learning-portal/page.tsx` when a resource moves.
 
-## Workflow
+## Contact form
 
-```mermaid
-flowchart TD
-  A[Clone repository] --> B[Create branch]
-  B --> C[Make changes]
-  C --> D[Commit changes]
-  D --> E[Push branch]
-  E --> F[Open collaboration workflow]
-```
+The homepage contact form submits to Web3Forms. Review the Web3Forms
+configuration in `src/components/sections/contact.tsx` before deploying or
+changing the form destination.
+
+## Deployment
+
+Build the site with `npm run build` and serve it with `npm run start`, or deploy
+the repository to a Next.js-compatible host such as Vercel.

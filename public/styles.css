@@ -303,24 +303,12 @@ body {
     background-image: url('assets/card-bg-art-syllabus.png');
 }
 
-#art-trivia-card .card {
-    background-image: url('assets/card-bg-art-trivia.png');
-}
-
-#art-papers-bot-card .card {
-    background-image: url('assets/card-bg-art-papers-bot.png');
-}
-
 #instruction-book-card .card {
     background-image: url('assets/card-bg-art-papers-bot.png');
 }
 
 #quizzard-card .card {
     background-image: url('assets/card-bg-quizzard.png');
-}
-
-#workshop-card .card {
-    background-image: url('assets/card-bg-edvision.png');
 }
 
 .card:hover {

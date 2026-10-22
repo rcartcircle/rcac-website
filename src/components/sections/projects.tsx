@@ -1,6 +1,8 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import type { LucideIcon } from "lucide-react"
+import { BookOpen, Brush, Building2, Frame, GraduationCap, Palette } from "lucide-react"
 
 type ProjectStatus = "completed" | "ongoing" | "upcoming"
 
@@ -8,12 +10,31 @@ interface Project {
   title: string
   description: string
   status: ProjectStatus
-  icon: string
+  icon: keyof typeof projectIcons
+  tone: keyof typeof toneConfig
 }
 
 import projectsData from "@/data/projects-2026.json"
 
 const projects: Project[] = projectsData as Project[]
+
+const projectIcons: Record<string, LucideIcon> = {
+  brush: Brush,
+  frame: Frame,
+  book: BookOpen,
+  museum: Building2,
+  graduation: GraduationCap,
+  palette: Palette,
+}
+
+const toneConfig = {
+  coral: "from-rose-100 via-cream to-rose-50 text-rose-700",
+  blue: "from-sky-100 via-cream to-cyan-50 text-sky-700",
+  gold: "from-amber-100 via-cream to-yellow-50 text-amber-700",
+  green: "from-emerald-100 via-cream to-teal-50 text-emerald-700",
+  violet: "from-violet-100 via-cream to-indigo-50 text-violet-700",
+  orange: "from-orange-100 via-cream to-amber-50 text-orange-700",
+} as const
 
 // Ensure projects render in chronological status order: completed -> ongoing -> upcoming
 const statusOrder: Record<ProjectStatus, number> = {
@@ -49,6 +70,7 @@ const statusConfig: Record<ProjectStatus, { label: string; bgClass: string; text
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const status = statusConfig[project.status]
+  const ProjectIcon = projectIcons[project.icon]
   const [isHovered, setIsHovered] = useState(false)
   
   return (
@@ -58,19 +80,16 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Image/Icon Area */}
-      <div className="aspect-[4/3] bg-gradient-to-br from-navy/5 to-gold/10 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent z-10" />
-        
-        {/* Decorative circles */}
-        <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border border-navy/10 transition-transform duration-500 ${isHovered ? 'scale-150' : ''}`} />
-        <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full border border-gold/20 transition-transform duration-700 ${isHovered ? 'scale-125' : ''}`} />
-        
-        {/* Icon */}
-        <div className={`absolute inset-0 flex items-center justify-center text-5xl transition-transform duration-300 ${isHovered ? 'scale-110' : ''}`}>
-          {project.icon}
+      <div className={`relative aspect-[4/3] overflow-hidden bg-gradient-to-br ${toneConfig[project.tone]}`}>
+        <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full border border-current/15" />
+        <div className={`absolute bottom-[-4.5rem] left-[-2rem] h-44 w-44 rounded-full border border-current/15 transition-transform duration-700 ${isHovered ? 'scale-125' : ''}`} />
+        <div className="absolute inset-5 border border-current/15" />
+        <div className="absolute left-6 top-5 z-10 font-mono text-xs font-semibold tracking-[0.24em] opacity-60">
+          {String(index + 1).padStart(2, "0")}
         </div>
-        
+        <div className={`absolute inset-0 z-10 flex items-center justify-center transition-transform duration-500 ${isHovered ? 'scale-110 rotate-3' : ''}`}>
+          <ProjectIcon className="h-20 w-20 stroke-[1.25]" aria-hidden="true" />
+        </div>
         {/* Status Badge */}
         <div className="absolute top-4 right-4 z-20">
           <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold ${status.bgClass} ${status.textClass}`}>
@@ -85,7 +104,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         <h3 className="text-lg font-semibold text-navy mb-2 group-hover:text-gold transition-colors duration-300">
           {project.title}
         </h3>
-        <p className="text-navy/60 text-sm leading-relaxed">
+        <p className="text-left text-sm leading-relaxed text-navy/60 md:text-justify">
           {project.description}
         </p>
         

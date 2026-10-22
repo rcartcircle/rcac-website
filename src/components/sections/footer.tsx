@@ -14,20 +14,17 @@ import {
 const exploreLinks = [
   ["Art Syllabus", "/art-syllabus"],
   ["Learning Portal", "/learning-portal"],
-  ["Art Papers Bot", "https://t.me/artpastpapersbot/"],
   ["O/L Instruction Book", "/#instruction-book-card"],
-  ["Art Trivia", "/art-trivia"],
-  ["Workshop", "/#workshop-card"],
 ] as const;
 
 const contacts = [
-  ["Lakindu Vinduwara", "+94 77 117 1289", "tel:+94771171289"],
-  ["Denuwan Vishwasarana", "+94 77 059 0198", "tel:+94770590198"],
-  ["Dishnuka Edirisinghe", "+94 77 543 4222", "tel:+94775434222"],
+  ["Resandu Marasinghe", "+94 70 720 0708", "tel:+94707200708"],
+  ["Senuth Sellahewa", "+94 71 900 8992", "tel:+94719008992"],
+  ["Chamithu Vithanage", "+94 78 476 4026", "tel:+94784764026"],
 ] as const;
 
 const socialLinks = [
-  ["Website", "https://www.rcartcircle.com/", IconWorld],
+  ["Website", "https://artcircle.royalcollege.lk/", IconWorld],
   ["Instagram", "https://www.instagram.com/rcartcircle/", IconBrandInstagram],
   [
     "Facebook",
@@ -67,6 +64,7 @@ export function Footer() {
             alt="Royal College Art Circle"
             width={300}
             height={100}
+            unoptimized
             className="h-auto w-[250px] object-contain md:w-[300px]"
           />
           <div className="flex items-center gap-6">
@@ -128,7 +126,7 @@ export function Footer() {
 
         <div className="flex flex-col items-center gap-8 rounded-[18px] border border-[#9492a1] bg-[#2d2d38]/40 px-6 py-10 text-center md:items-start md:text-left">
           <a
-            href="https://www.rcartcircle.com/"
+            href="https://artcircle.royalcollege.lk/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex w-full items-center justify-between gap-6 text-sm text-[#e0e0e0] transition hover:text-white"
@@ -136,18 +134,18 @@ export function Footer() {
             <span>
               <strong>Visit Our Official Website</strong>
               <br />
-              www.rcartcircle.com
+              artcircle.royalcollege.lk
             </span>
             <IconArrowUpRight className="h-8 w-8 shrink-0" />
           </a>
           <a
-            href="mailto:info@artcircle.royalcollege.lk"
+            href="mailto:royalcollegeartcircle@gmail.com"
             className="flex w-full items-center justify-between gap-6 text-sm text-[#e0e0e0] transition hover:text-white"
           >
             <span>
               <strong>Contact Us</strong>
               <br />
-              info@artcircle.royalcollege.lk
+              royalcollegeartcircle@gmail.com
             </span>
             <IconArrowUpRight className="h-8 w-8 shrink-0" />
           </a>
@@ -155,7 +153,7 @@ export function Footer() {
       </div>
       <div className="relative z-10 mx-auto mt-8 flex max-w-[1200px] flex-col items-center gap-4 border-t border-[#666] pt-5 text-center text-xs text-[#b4b4b4]">
         <p>
-          © {new Date().getFullYear()} Chithra Akura | Royal College Art Circle
+          © {new Date().getFullYear()} Royal College Art Circle
         </p>
       </div>
     </footer>
