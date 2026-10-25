@@ -18,6 +18,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const isLessonPage = pathname.includes("/art-syllabus/") && pathname.includes("/lesson-");
 
   const resolveHref = (href: string) => {
     if (href.startsWith("#") && pathname !== "/") {
@@ -46,7 +47,7 @@ export function Navbar() {
 
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled || isMobileMenuOpen
+          isLessonPage || isScrolled || isMobileMenuOpen
             ? "bg-cream/95 backdrop-blur-md border-b border-border shadow-sm"
             : "bg-transparent"
         }`}

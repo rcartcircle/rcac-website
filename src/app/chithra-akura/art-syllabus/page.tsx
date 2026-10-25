@@ -9,7 +9,7 @@ const gradeOptions = [
   ["Grade 8", "/legacy/sub-art-syllabus/grade-8/grade-8-main.html", "from-slate-700 to-slate-900"],
   ["Grade 9", "/legacy/sub-art-syllabus/grade-9/grade-9-main.html", "from-indigo-700 to-indigo-900"],
   ["Grade 10", "/legacy/sub-art-syllabus/grade-10/grade-10-main.html", "from-emerald-700 to-emerald-900"],
-  ["Grade 11", "/legacy/sub-art-syllabus/grade-11/grade-11-main.html", "from-amber-600 to-amber-800"],
+  ["Grade 11", "/chithra-akura/art-syllabus/grade-11", "from-amber-600 to-amber-800"],
 ] as const;
 
 export default function ChithraAkuraArtSyllabusPage() {
