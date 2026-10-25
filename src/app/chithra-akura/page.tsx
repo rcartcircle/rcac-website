@@ -9,7 +9,7 @@ const resources = [
     eyebrow: "Curriculum resource",
     description:
       "Browse the art syllabus pathway from Grade 6 through Grade 11 and continue to the detailed lesson resources.",
-    href: "/art-syllabus",
+    href: "/chithra-akura/art-syllabus",
     icon: BookOpenText,
     accent: "from-navy to-navy-light",
   },
@@ -18,7 +18,7 @@ const resources = [
     eyebrow: "Creative practice",
     description:
       "Explore focused learning tracks across design, materials, architecture, fashion, vehicles, and environmental design.",
-    href: "/learning-portal",
+    href: "/chithra-akura/learning-portal",
     icon: GraduationCap,
     accent: "from-gold to-amber-500",
   },
