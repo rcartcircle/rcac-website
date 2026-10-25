@@ -10,10 +10,8 @@ projects, leadership, art-learning resources, and contact information.
   project-status counts, and contact form.
 - Current leadership and teacher-in-charge information at `/leadership`.
 - A historical board archive at `/past-boards`.
-- Grade 6 to Grade 11 syllabus links at `/art-syllabus`.
-- Learning tracks for graphic design, sculpting, architecture, fashion and
-  textiles, vehicle design, and environmentally friendly design at
-  `/learning-portal`.
+- The Chithra Akura learning hub at `/chithra-akura`, which brings together
+  the art syllabus and learning portal resources.
 
 ## Tech stack
 
@@ -68,8 +66,9 @@ public/
 - Page routes: `src/app/`
 - Static images and legacy resources: `public/`
 
-The learning portal links to separate Google Sites resources. Update those
-links in `src/app/learning-portal/page.tsx` when a resource moves.
+The Chithra Akura hub links to the internal syllabus page and learning portal.
+The learning portal then links to separate Google Sites resources. Update
+those links in `src/app/learning-portal/page.tsx` when a resource moves.
 
 ## Contact form
 

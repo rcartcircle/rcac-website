@@ -12,8 +12,7 @@ import {
 } from "@tabler/icons-react";
 
 const exploreLinks = [
-  ["Art Syllabus", "/art-syllabus"],
-  ["Learning Portal", "/learning-portal"],
+  ["Chithra Akura", "/chithra-akura"],
   ["O/L Instruction Book", "/#instruction-book-card"],
 ] as const;
 
