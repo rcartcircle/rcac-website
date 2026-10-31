@@ -143,32 +143,32 @@
       "code": "7.2.4",
       "title": "පොළොන්නරු ගෘහ නිර්මාණ අගයමු",
       "pdfStartPage": 146,
-      "contentFile": null,
-      "status": "pending"
+      "contentFile": "lesson-18.json",
+      "status": "done"
     },
     {
       "id": 19,
       "code": "7.3.1",
       "title": "මහනුවර යුගයට අයත් පහතරට විහාර බිතු සිතුවම් අගයමු",
       "pdfStartPage": 154,
-      "contentFile": null,
-      "status": "pending"
+      "contentFile": "lesson-19.json",
+      "status": "done"
     },
     {
       "id": 20,
       "code": "7.4.1",
       "title": "මෞර්ය, සුංග සහ සාතවාහන යුගවල කලා නිර්මාණ අගයමු",
       "pdfStartPage": 161,
-      "contentFile": null,
-      "status": "pending"
+      "contentFile": "lesson-20.json",
+      "status": "done"
     },
     {
       "id": 21,
       "code": "7.4.2",
       "title": "ගුප්ත යුගයට අයත් කලා නිර්මාණ අගයමු",
       "pdfStartPage": 168,
-      "contentFile": null,
-      "status": "pending"
+      "contentFile": "lesson-21.json",
+      "status": "done"
     }
   ]
 }
