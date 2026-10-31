@@ -20,12 +20,31 @@ export interface SyllabusSection {
   id: string;
   heading: string;
   image?: string;
-  points?: string[];
-  numberedPoints?: string[];
-  afterNumberedPoints?: string[];
-  artworkList?: string[];
+  images?: string[];
+  imageCaptions?: Record<string, string>;
+  points?: SyllabusPoint[];
+  numberedPoints?: SyllabusPoint[];
+  afterNumberedPoints?: SyllabusPoint[];
+  artworkList?: SyllabusPoint[];
   afterArtworkIntro?: string;
-  afterArtworkList?: string[];
+  afterArtworkList?: SyllabusPoint[];
+  notes?: SyllabusNote;
+  subSections?: SyllabusSubSection[];
+}
+
+export type SyllabusPoint = string | {
+  text: string;
+  subPoints?: string[];
+};
+
+export interface SyllabusNote {
+  heading: string;
+  items: string[];
+}
+
+export interface SyllabusSubSection {
+  heading: string;
+  text: string;
 }
 
 export interface SyllabusLesson {

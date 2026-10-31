@@ -7,6 +7,7 @@ import { Footer } from "@/components/sections/footer";
 import {
   readSyllabusIndex,
   readSyllabusLesson,
+  type SyllabusPoint,
   type SyllabusSection,
 } from "@/lib/art-syllabus";
 
@@ -17,40 +18,94 @@ export async function generateStaticParams() {
     .map((lesson) => ({ grade: "grade-11", lessonId: `lesson-${lesson.id}` }));
 }
 
+function pointText(point: SyllabusPoint) {
+  return typeof point === "string" ? point : point.text;
+}
+
+function pointSubPoints(point: SyllabusPoint) {
+  return typeof point === "string" ? undefined : point.subPoints;
+}
+
+function PointList({
+  points,
+  ordered = false,
+  className = "mt-7",
+}: {
+  points: SyllabusPoint[];
+  ordered?: boolean;
+  className?: string;
+}) {
+  const List = ordered ? "ol" : "ul";
+  return (
+    <List
+      className={`${className} ${ordered ? "list-decimal pl-12 marker:font-semibold marker:text-gold" : "space-y-4"} text-base leading-8 text-navy/75 md:text-lg`}
+    >
+      {points.map((point, index) => (
+        <li
+          key={`${pointText(point)}-${index}`}
+          className={ordered ? "pl-2" : "pl-6 before:mr-3 before:inline-block before:h-1.5 before:w-1.5 before:-translate-y-0.5 before:rounded-full before:bg-gold before:content-['']"}
+        >
+          {pointText(point)}
+          {pointSubPoints(point)?.length ? (
+            <ul className="mt-2 space-y-2 pl-6 text-base leading-7 text-navy/70 marker:text-gold">
+              {pointSubPoints(point)?.map((subPoint) => <li key={subPoint} className="list-[circle] pl-2">{subPoint}</li>)}
+            </ul>
+          ) : null}
+        </li>
+      ))}
+    </List>
+  );
+}
+
+function SectionImages({ section }: { section: SyllabusSection }) {
+  if (section.images?.length) {
+    return (
+      <div className="mt-7 grid grid-cols-1 gap-5 md:grid-cols-2">
+        {section.images.map((image) => {
+          const fileName = image.split("/").pop() ?? image;
+          const caption = section.imageCaptions?.[fileName];
+          return (
+            <figure key={image} className="overflow-hidden border border-border bg-card">
+              <a href={image} target="_blank" rel="noreferrer" className="block">
+                <Image src={image} alt={section.heading} width={1200} height={800} className="h-auto max-h-[34rem] w-full object-contain" />
+              </a>
+              {caption ? <figcaption className="border-t border-border px-4 py-3 text-center text-sm leading-6 text-navy/65">{caption}</figcaption> : null}
+            </figure>
+          );
+        })}
+      </div>
+    );
+  }
+
+  if (section.image) {
+    return (
+      <a href={section.image} target="_blank" rel="noreferrer" className="mt-7 block overflow-hidden border border-border bg-card">
+        <Image src={section.image} alt={section.heading} width={1200} height={800} className="mx-auto h-auto max-h-[34rem] w-full object-contain" />
+      </a>
+    );
+  }
+
+  return null;
+}
+
 function SectionContent({ section }: { section: SyllabusSection }) {
   return (
     <section id={section.id} className="scroll-mt-28 border-t border-navy/10 pt-10">
       <h2 className="font-serif text-2xl font-bold text-navy md:text-3xl">{section.heading}</h2>
-      {section.image ? (
-        <a href={section.image} target="_blank" rel="noreferrer" className="mt-7 block overflow-hidden border border-border bg-card">
-          <Image
-            src={section.image}
-            alt={section.heading}
-            width={1200}
-            height={800}
-            className="mx-auto h-auto max-h-[34rem] w-full object-contain"
-          />
-        </a>
-      ) : null}
+      <SectionImages section={section} />
       {section.points?.length ? (
-        <ul className="mt-7 space-y-4 text-base leading-8 text-navy/75 md:text-lg">
-          {section.points.map((point) => <li key={point} className="pl-6 before:mr-3 before:inline-block before:h-1.5 before:w-1.5 before:-translate-y-0.5 before:rounded-full before:bg-gold before:content-['']">{point}</li>)}
-        </ul>
+        <PointList points={section.points} />
       ) : null}
       {section.numberedPoints?.length ? (
-        <ol className="mt-3 list-decimal space-y-3 pl-12 text-base leading-8 text-navy/75 marker:font-semibold marker:text-gold md:text-lg">
-          {section.numberedPoints.map((point) => <li key={point} className="pl-2">{point}</li>)}
-        </ol>
+        <PointList points={section.numberedPoints} ordered className="mt-3 space-y-3" />
       ) : null}
       {section.afterNumberedPoints?.length ? (
-        <ul className="mt-7 space-y-4 text-base leading-8 text-navy/75 md:text-lg">
-          {section.afterNumberedPoints.map((point) => <li key={point} className="pl-6 before:mr-3 before:inline-block before:h-1.5 before:w-1.5 before:-translate-y-0.5 before:rounded-full before:bg-gold before:content-['']">{point}</li>)}
-        </ul>
+        <PointList points={section.afterNumberedPoints} />
       ) : null}
       {section.artworkList?.length ? (
         <div className="mt-7 border-l-2 border-gold/70 bg-card px-6 py-5">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Selected works</p>
-          <ul className="mt-3 space-y-2 text-navy/75">{section.artworkList.map((work) => <li key={work}>• {work}</li>)}</ul>
+          <ul className="mt-3 space-y-2 text-navy/75">{section.artworkList.map((work, index) => <li key={`${pointText(work)}-${index}`}>• {pointText(work)}</li>)}</ul>
         </div>
       ) : null}
       {section.afterArtworkIntro ? (
@@ -59,13 +114,23 @@ function SectionContent({ section }: { section: SyllabusSection }) {
         </p>
       ) : null}
       {section.afterArtworkList?.length ? (
-        <ul className="mt-7 space-y-3 text-base leading-8 text-navy/75 md:text-lg">
-          {section.afterArtworkList.map((point) => (
-            <li key={point} className="pl-6 before:mr-3 before:inline-block before:h-1.5 before:w-1.5 before:-translate-y-0.5 before:rounded-full before:bg-gold before:content-['']">
-              {point}
-            </li>
+        <PointList points={section.afterArtworkList} className="mt-7 space-y-3" />
+      ) : null}
+      {section.notes?.items.length ? (
+        <aside className="mt-8 border-l-2 border-gold bg-gold/10 px-6 py-5">
+          <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-gold">{section.notes.heading}</h3>
+          <ul className="mt-3 space-y-2 text-base leading-7 text-navy/75">{section.notes.items.map((item) => <li key={item}>• {item}</li>)}</ul>
+        </aside>
+      ) : null}
+      {section.subSections?.length ? (
+        <div className="mt-8 space-y-6">
+          {section.subSections.map((subSection) => (
+            <div key={subSection.heading}>
+              <h3 className="font-serif text-xl font-bold text-navy">{subSection.heading}</h3>
+              <p className="mt-2 text-base leading-8 text-navy/75 md:text-lg">{subSection.text}</p>
+            </div>
           ))}
-        </ul>
+        </div>
       ) : null}
     </section>
   );
