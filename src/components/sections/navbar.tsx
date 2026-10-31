@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -11,7 +12,6 @@ const navItems = [
   { label: "Leadership", href: "/leadership", isPage: true },
   { label: "Past Boards", href: "/past-boards", isPage: true },
   { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
 ];
 
 export function Navbar() {
@@ -40,7 +40,8 @@ export function Navbar() {
     <>
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 z-40 md:hidden bg-cream/35 backdrop-blur-md pointer-events-none"
+          className="fixed inset-0 z-40 bg-navy/10 backdrop-blur-sm md:hidden"
+          onClick={() => setIsMobileMenuOpen(false)}
           aria-hidden="true"
         />
       )}
@@ -52,7 +53,7 @@ export function Navbar() {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-6 py-4">
+        <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6 sm:py-4">
           <div className="flex items-center justify-between">
             {/* Logo (image from public/logo.png) */}
             <Link href="/" className="group flex items-center gap-3">
@@ -61,86 +62,58 @@ export function Navbar() {
                 alt="Royal College Art Circle"
                 width={120}
                 height={50}
-                className="object-contain"
-                style={{ width: "auto", height: "50px" }}
+                className="h-11 w-auto object-contain sm:h-[50px]"
                 priority
               />
               <span className="sr-only">Royal College Art Circle</span>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-8">
-              {navItems.map((item) =>
-                item.isPage ? (
-                  <Link
-                    key={item.label}
-                    href={resolveHref(item.href)}
-                    className="text-sm font-bold text-navy/90 hover:text-gold transition-colors relative group"
-                  >
-                    {item.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full" />
-                  </Link>
-                ) : (
-                  <Link
-                    key={item.label}
-                    href={resolveHref(item.href)}
-                    className="text-sm font-bold text-navy/90 hover:text-gold transition-colors relative group"
-                  >
-                    {item.label}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-300 group-hover:w-full" />
-                  </Link>
-                ),
-              )}
+            <nav className="hidden items-center gap-8 md:flex">
+              {navItems.map((item) => (
+                <Link
+                  key={item.label}
+                  href={resolveHref(item.href)}
+                  className="group relative text-sm font-bold text-navy/90 transition-colors hover:text-gold"
+                >
+                  {item.label}
+                  <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gold transition-all duration-300 group-hover:w-full" />
+                </Link>
+              ))}
             </nav>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden w-10 h-10 flex items-center justify-center rounded-full bg-navy/5 hover:bg-navy/10 transition-colors"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-navy/10 bg-cream/80 text-navy shadow-sm transition-colors hover:border-gold hover:text-gold md:hidden"
               aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
             >
-              <div className="flex flex-col gap-1.5">
-                <span
-                  className={`w-5 h-0.5 bg-navy transition-all duration-300 ${isMobileMenuOpen ? "rotate-45 translate-y-2" : ""}`}
-                />
-                <span
-                  className={`w-5 h-0.5 bg-navy transition-all duration-300 ${isMobileMenuOpen ? "opacity-0" : ""}`}
-                />
-                <span
-                  className={`w-5 h-0.5 bg-navy transition-all duration-300 ${isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}
-                />
-              </div>
+              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
 
           {/* Mobile Menu */}
           <div
-            className={`relative z-50 md:hidden overflow-hidden transition-all duration-300 ${isMobileMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"}`}
+            className={`relative z-50 overflow-hidden transition-all duration-300 md:hidden ${isMobileMenuOpen ? "max-h-[calc(100vh-5rem)] pt-3 opacity-100" : "max-h-0 opacity-0"}`}
           >
-            <nav className="mt-4 rounded-2xl border border-border bg-cream/95 backdrop-blur-md px-4 pt-4 pb-2 shadow-lg shadow-navy/10">
-              {navItems.map((item, index) =>
-                item.isPage ? (
+            <nav className="rounded-2xl border border-border bg-cream/95 p-2 shadow-xl shadow-navy/15 backdrop-blur-md">
+              {navItems.map((item, index) => {
+                const href = resolveHref(item.href);
+                const isActive = item.isPage && pathname === item.href;
+                return (
                   <Link
                     key={item.label}
-                    href={item.href}
+                    href={href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block py-3 text-navy/70 hover:text-gold transition-colors"
+                    className={`flex items-center justify-between rounded-xl px-4 py-3.5 text-sm font-medium transition-colors ${isActive ? "bg-navy text-cream" : "text-navy/75 hover:bg-navy/5 hover:text-navy"}`}
                     style={{ transitionDelay: `${index * 50}ms` }}
                   >
                     {item.label}
+                    <span className={`h-1.5 w-1.5 rounded-full ${isActive ? "bg-gold" : "bg-navy/15"}`} />
                   </Link>
-                ) : (
-                  <Link
-                    key={item.label}
-                    href={resolveHref(item.href)}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block py-3 text-navy/70 hover:text-gold transition-colors"
-                    style={{ transitionDelay: `${index * 50}ms` }}
-                  >
-                    {item.label}
-                  </Link>
-                ),
-              )}
+                );
+              })}
             </nav>
           </div>
         </div>

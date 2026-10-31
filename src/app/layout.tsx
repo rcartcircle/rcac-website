@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { PaintbrushCursor } from "@/components/paintbrush-cursor";
 import "./globals.css";
 
 const geist = Geist({
@@ -38,6 +39,7 @@ export default function RootLayout({
       <body
         className={`${geist.variable} ${geistMono.variable} ${playfair.variable} font-sans antialiased`}
       >
+        <PaintbrushCursor />
         {children}
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, BookOpenText, GraduationCap } from "lucide-react";
+import { ArrowUpRight, BookOpenCheck, BookOpenText, GraduationCap } from "lucide-react";
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
 
@@ -12,6 +12,7 @@ const resources = [
     href: "/chithra-akura/art-syllabus",
     icon: BookOpenText,
     accent: "from-navy to-navy-light",
+    external: false,
   },
   {
     label: "Learning Portal",
@@ -21,6 +22,17 @@ const resources = [
     href: "/chithra-akura/learning-portal",
     icon: GraduationCap,
     accent: "from-gold to-amber-500",
+    external: false,
+  },
+  {
+    label: "O/L Instruction Book",
+    eyebrow: "Exam resource",
+    description:
+      "Read the instruction book online for guidance and reference while preparing for the G.C.E. Ordinary Level Art examination.",
+    href: "https://online.pubhtml5.com/kdkt/lnri/",
+    icon: BookOpenCheck,
+    accent: "from-emerald-700 to-teal-500",
+    external: true,
   },
 ] as const;
 
@@ -53,10 +65,12 @@ export default function ChithraAkuraPage() {
           </div>
 
           <div className="mx-auto mt-14 grid max-w-5xl gap-6 md:grid-cols-2">
-            {resources.map(({ label, eyebrow, description, href, icon: Icon, accent }) => (
+            {resources.map(({ label, eyebrow, description, href, icon: Icon, accent, external }) => (
               <Link
                 key={label}
                 href={href}
+                target={external ? "_blank" : undefined}
+                rel={external ? "noreferrer" : undefined}
                 className="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-gold/50 hover:shadow-xl hover:shadow-navy/10"
               >
                 <div className={`relative h-40 overflow-hidden bg-gradient-to-br ${accent}`}>

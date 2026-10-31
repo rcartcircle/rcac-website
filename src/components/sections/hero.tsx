@@ -7,51 +7,8 @@ import {
   IconClock,
   IconSparkles,
 } from "@tabler/icons-react";
-import { useEffect, useRef, useState } from "react";
 import { AnimatedCounter } from "@/components/animated-counter";
 import { countProjectsByStatus } from "@/lib/project-stats";
-
-function PaintBrushCursor() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
-  const trailRef = useRef<{ x: number; y: number }[]>([]);
-
-  useEffect(() => {
-    const heroSection = document.getElementById("hero-section");
-    if (!heroSection) return;
-
-    const handleMouseMove = (event: MouseEvent) => {
-      setPosition({ x: event.clientX, y: event.clientY });
-      trailRef.current = [
-        ...trailRef.current.slice(-5),
-        { x: event.clientX, y: event.clientY },
-      ];
-    };
-    const handleMouseEnter = () => setIsHovering(true);
-    const handleMouseLeave = () => setIsHovering(false);
-
-    heroSection.addEventListener("mousemove", handleMouseMove);
-    heroSection.addEventListener("mouseenter", handleMouseEnter);
-    heroSection.addEventListener("mouseleave", handleMouseLeave);
-
-    return () => {
-      heroSection.removeEventListener("mousemove", handleMouseMove);
-      heroSection.removeEventListener("mouseenter", handleMouseEnter);
-      heroSection.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, []);
-
-  if (!isHovering) return null;
-
-  return (
-    <div
-      className="pointer-events-none fixed z-50 transition-transform duration-75"
-      style={{ left: position.x - 10, top: position.y - 10 }}
-    >
-      <div className="h-5 w-5 border border-gold bg-cream/70 shadow-[0_0_20px_rgba(212,168,76,0.7)]" />
-    </div>
-  );
-}
 
 const statusItems = [
   ["Completed", "bg-status-completed", IconCheck],
@@ -70,7 +27,6 @@ export function Hero() {
       id="hero-section"
       className="relative min-h-screen overflow-hidden bg-cream text-navy"
     >
-      <PaintBrushCursor />
       <div className="absolute inset-y-0 right-0 w-full md:w-[58%]">
         <Image
           src="/assets/hero-bg.png"

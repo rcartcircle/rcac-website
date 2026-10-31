@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Home } from "lucide-react";
 
 export default function NotFound() {
@@ -41,13 +42,20 @@ export default function NotFound() {
             </div>
           </div>
 
-          <div className="relative flex items-center justify-center">
-            <div className="absolute h-44 w-44 rounded-full bg-[#d4a84c]/20 blur-3xl" />
-            <div className="relative rounded-[1.75rem] border border-[#d4a84c]/30 bg-[#101c31]/90 px-8 py-10 text-center shadow-[0_20px_50px_rgba(17,27,56,0.65)]">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-[1.75rem] border border-[#d4a84c]/30 bg-[#101c31] shadow-[0_20px_50px_rgba(17,27,56,0.65)]">
+            <Image
+              src="/assets/404.jpg"
+              alt="Abstract artwork representing a blank canvas"
+              fill
+              priority
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-[#0f1d37]/55" />
+            <div className="relative flex h-full flex-col items-center justify-center text-center">
               <div className="text-7xl font-black leading-none tracking-[-0.08em] text-[#f6d98d]">
                 404
               </div>
-              <div className="mt-4 text-xs uppercase tracking-[0.3em] text-slate-300">
+              <div className="mt-4 text-xs uppercase tracking-[0.3em] text-white/85">
                 A Blank Canvas
               </div>
             </div>

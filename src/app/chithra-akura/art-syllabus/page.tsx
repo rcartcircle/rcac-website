@@ -4,11 +4,11 @@ import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
 
 const gradeOptions = [
-  ["Grade 6", "/legacy/sub-art-syllabus/grade-6/grade-6-main.html", "from-navy to-navy-light"],
-  ["Grade 7", "/legacy/sub-art-syllabus/grade-7/grade-7-main.html", "from-gold to-yellow-400"],
-  ["Grade 8", "/legacy/sub-art-syllabus/grade-8/grade-8-main.html", "from-slate-700 to-slate-900"],
-  ["Grade 9", "/legacy/sub-art-syllabus/grade-9/grade-9-main.html", "from-indigo-700 to-indigo-900"],
-  ["Grade 10", "/legacy/sub-art-syllabus/grade-10/grade-10-main.html", "from-emerald-700 to-emerald-900"],
+  ["Grade 6", "/chithra-akura/art-syllabus/grade-6", "from-navy to-navy-light"],
+  ["Grade 7", "/chithra-akura/art-syllabus/grade-7", "from-gold to-yellow-400"],
+  ["Grade 8", "/chithra-akura/art-syllabus/grade-8", "from-slate-700 to-slate-900"],
+  ["Grade 9", "/chithra-akura/art-syllabus/grade-9", "from-indigo-700 to-indigo-900"],
+  ["Grade 10", "/chithra-akura/art-syllabus/grade-10", "from-emerald-700 to-emerald-900"],
   ["Grade 11", "/chithra-akura/art-syllabus/grade-11", "from-amber-600 to-amber-800"],
 ] as const;
 

@@ -102,7 +102,7 @@ function MemberCard({
           <div className="min-w-0">
             <h4
               className={cn(
-                "font-semibold text-sm truncate",
+                "break-words font-semibold text-sm leading-5",
                 isLeader ? "text-white" : "text-navy",
               )}
             >
@@ -110,7 +110,7 @@ function MemberCard({
             </h4>
             <p
               className={cn(
-                "text-xs truncate",
+                "break-words text-xs leading-5",
                 isLeader ? "text-gold" : "text-navy/60",
               )}
             >
@@ -139,10 +139,10 @@ function YearSection({
 
   return (
     <div className="relative">
-      <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-gold via-navy/20 to-transparent" />
+      <div className="absolute bottom-0 left-5 top-0 w-px bg-gradient-to-b from-gold via-navy/20 to-transparent sm:left-6" />
 
-      <div className="relative pl-16">
-        <div className="absolute left-0 top-0 w-12 h-12 rounded-full bg-gradient-to-br from-navy to-navy-light flex items-center justify-center shadow-lg">
+      <div className="relative pl-14 sm:pl-16">
+        <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-navy to-navy-light shadow-lg sm:h-12 sm:w-12">
           <span className="text-gold font-bold text-xs">
             {board.year.split("/")[0].slice(-2)}
           </span>
@@ -153,7 +153,7 @@ function YearSection({
           open={defaultOpen}
           className="group bg-card border border-border rounded-2xl overflow-hidden shadow-md open:shadow-xl open:shadow-navy/5"
         >
-          <summary className="w-full p-6 flex items-center justify-between hover:bg-secondary/30 transition-colors text-left cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+            <summary className="flex w-full cursor-pointer list-none items-center justify-between p-4 text-left transition-colors hover:bg-secondary/30 sm:p-6 [&::-webkit-details-marker]:hidden">
             <div>
               <div className="flex items-center gap-3 mb-1">
                 <h3 className="text-xl md:text-2xl font-serif font-bold text-navy">
@@ -187,7 +187,7 @@ function YearSection({
             </div>
           </summary>
 
-          <div className="px-6 pb-6 space-y-6">
+            <div className="space-y-6 px-4 pb-5 sm:px-6 sm:pb-6">
             <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
             <div>
@@ -226,7 +226,7 @@ export default function PastBoardsPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative pt-32 pb-16 md:pt-36 md:pb-20 overflow-hidden">
+      <section className="relative overflow-hidden pb-8 pt-28 md:pb-20 md:pt-36">
         {/* Background decoration */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-20 left-10 w-64 h-64 bg-gold/5 rounded-full blur-3xl" />
@@ -234,11 +234,11 @@ export default function PastBoardsPage() {
         </div>
 
         <div className="relative max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-navy mb-4">
+          <h1 className="mb-4 font-serif text-3xl font-bold text-navy sm:text-4xl md:text-5xl lg:text-6xl">
             Past <span className="text-gold">Boards</span>
           </h1>
 
-          <p className="text-lg text-navy/60 max-w-2xl mx-auto mb-8">
+          <p className="mx-auto mb-6 max-w-2xl text-base text-navy/60 sm:text-lg md:mb-8">
             Explore the leadership timeline of the Royal College Art Circle.
           </p>
 
@@ -267,7 +267,7 @@ export default function PastBoardsPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-8 md:py-16">
+      <section className="pb-8 pt-2 md:py-16">
         <div className="max-w-4xl mx-auto px-4">
           <div className="space-y-6">
             {sortedBoards.map((board, index) => {

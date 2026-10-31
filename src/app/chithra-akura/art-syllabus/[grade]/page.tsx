@@ -14,7 +14,33 @@ const gradeAccents = [
 ];
 
 export async function generateStaticParams() {
-  return [{ grade: "grade-11" }];
+  return [6, 7, 8, 9, 10, 11].map((grade) => ({ grade: `grade-${grade}` }));
+}
+
+function ComingSoonPage({ grade }: { grade: string }) {
+  return (
+    <main className="min-h-screen bg-background text-foreground">
+      <Navbar />
+      <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden px-4 pt-24">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute left-10 top-20 h-64 w-64 rounded-full bg-gold/10 blur-3xl" />
+          <div className="absolute bottom-10 right-10 h-80 w-80 rounded-full bg-navy/10 blur-3xl" />
+        </div>
+        <div className="relative mx-auto max-w-xl text-center">
+          <Link href="/chithra-akura/art-syllabus" className="text-xs font-semibold uppercase tracking-[0.24em] text-gold hover:text-navy">
+            Art Syllabus
+          </Link>
+          <h1 className="mt-5 font-serif text-4xl font-bold text-navy md:text-5xl">
+            Grade <span className="text-gold">{grade.replace("grade-", "")}</span>
+          </h1>
+          <p className="mt-5 text-lg leading-8 text-navy/60">
+            The lessons for this grade are being prepared and will be available soon.
+          </p>
+        </div>
+      </section>
+      <Footer />
+    </main>
+  );
 }
 
 export default async function GradeSyllabusPage({
@@ -28,6 +54,9 @@ export default async function GradeSyllabusPage({
   try {
     syllabus = await readSyllabusIndex(grade);
   } catch {
+    if (/^grade-(6|7|8|9|10)$/.test(grade)) {
+      return <ComingSoonPage grade={grade} />;
+    }
     notFound();
   }
 
