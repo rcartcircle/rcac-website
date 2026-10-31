@@ -52,6 +52,23 @@ at the Art Circle is to develop the students talents to the extent of being reco
 other people in society. Also, the circle works to pave a path for those talented students
 who wish to carry out their skills in the future.
             </p>
+            <div className="grid gap-6 pt-4 md:grid-cols-2">
+              <div className="border-l-2 border-gold/70 pl-5">
+                <h3 className="mb-2 font-serif text-2xl font-bold text-navy">Club Vision</h3>
+                <p className="text-base leading-relaxed text-navy/70">
+                  The vision of the Art Circle is to enrich the students&apos; lives, enhance
+                  their school experiences, and complement school-based art education.
+                </p>
+              </div>
+              <div className="border-l-2 border-gold/70 pl-5">
+                <h3 className="mb-2 font-serif text-2xl font-bold text-navy">Club Mission</h3>
+                <p className="text-base leading-relaxed text-navy/70">
+                  The mission is to provide the members with an opportunity to express
+                  individuality through the creation of artwork; these being created in unique
+                  ways for our community, school, and self.
+                </p>
+              </div>
+            </div>
             <div className="flex flex-wrap gap-3 pt-4">
               {["Painting",  "Sculpture", "Digital Art", "Design"].map((skill, index) => (
                 <span 
