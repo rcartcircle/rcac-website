@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 
 const navItems = [
   { label: "About", href: "#about" },
@@ -12,6 +12,12 @@ const navItems = [
   { label: "Leadership", href: "/leadership", isPage: true },
   { label: "Past Boards", href: "/past-boards", isPage: true },
   { label: "Projects", href: "#projects" },
+];
+
+const chithraAkuraLinks = [
+  { label: "Art Syllabus", href: "/chithra-akura/art-syllabus" },
+  { label: "Learning Portal", href: "/chithra-akura/learning-portal" },
+  { label: "O/L Instruction Book", href: "https://online.pubhtml5.com/kdkt/lnri/", external: true },
 ];
 
 export function Navbar() {
@@ -70,16 +76,50 @@ export function Navbar() {
 
             {/* Desktop Navigation */}
             <nav className="hidden items-center gap-8 md:flex">
-              {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={resolveHref(item.href)}
-                  className="group relative text-sm font-bold text-navy/90 transition-colors hover:text-gold"
-                >
-                  {item.label}
-                  <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gold transition-all duration-300 group-hover:w-full" />
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                if (item.label !== "Chithra Akura") {
+                  return (
+                    <Link
+                      key={item.label}
+                      href={resolveHref(item.href)}
+                      className="group relative text-sm font-bold text-navy/90 transition-colors hover:text-gold"
+                    >
+                      {item.label}
+                      <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gold transition-all duration-300 group-hover:w-full" />
+                    </Link>
+                  );
+                }
+
+                return (
+                  <div key={item.label} className="group relative">
+                    <Link
+                      href={item.href}
+                      className="relative flex items-center gap-1 text-sm font-bold text-navy/90 transition-colors hover:text-gold"
+                    >
+                      {item.label}
+                      <ChevronDown className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180" />
+                      <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gold transition-all duration-300 group-hover:w-full" />
+                    </Link>
+                    <div className="pointer-events-none absolute left-1/2 top-full z-50 w-56 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
+                      <div className="rounded-xl border border-border bg-cream/95 p-2 shadow-xl shadow-navy/15 backdrop-blur-md">
+                        {chithraAkuraLinks.map((subItem) => (
+                          <Link
+                            key={subItem.href}
+                            href={subItem.href}
+                            target={subItem.external ? "_blank" : undefined}
+                            rel={subItem.external ? "noreferrer" : undefined}
+                            className={`block rounded-lg px-3 py-2.5 text-sm transition-colors hover:bg-navy/5 hover:text-gold ${
+                              pathname === subItem.href ? "font-semibold text-gold" : "text-navy/75"
+                            }`}
+                          >
+                            {subItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </nav>
 
             {/* Mobile Menu Button */}

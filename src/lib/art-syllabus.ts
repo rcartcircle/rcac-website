@@ -76,6 +76,24 @@ export async function readSyllabusIndex(grade: string): Promise<SyllabusIndex> {
   return JSON.parse(file) as SyllabusIndex;
 }
 
+export async function readSyllabusIndexIfExists(
+  grade: string,
+): Promise<SyllabusIndex | null> {
+  try {
+    return await readSyllabusIndex(grade);
+  } catch (error) {
+    if (
+      error instanceof Error &&
+      "code" in error &&
+      error.code === "ENOENT"
+    ) {
+      return null;
+    }
+
+    throw error;
+  }
+}
+
 export async function readSyllabusLesson(
   grade: string,
   lessonId: string,

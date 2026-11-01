@@ -111,7 +111,7 @@ export default async function GradeSyllabusPage({
                   {card}
                 </Link>
               ) : (
-                <div key={lesson.id} aria-disabled="true" className="opacity-65">{card}</div>
+                <div key={lesson.id} aria-disabled="true" className="opacity-75 saturate-75">{card}</div>
               );
             })}
           </div>

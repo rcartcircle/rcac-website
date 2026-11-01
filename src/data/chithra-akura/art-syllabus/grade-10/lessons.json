@@ -1,0 +1,158 @@
+{
+  "grade": 10,
+  "subject": "චිත්‍ර කලාව",
+  "lessons": [
+    {
+      "id": 1,
+      "code": "6.1.1",
+      "title": "එම්. සාර්ලිස් ශිල්පියාගේ සිතුවම් අගයමු",
+      "pdfStartPage": 46,
+      "contentFile": "lesson-1.json",
+      "status": "done"
+    },
+    {
+      "id": 2,
+      "code": "6.1.2",
+      "title": "සෝලියස් මෙන්ඩිස් ශිල්පියාගේ සිතුවම් අගයමු",
+      "pdfStartPage": 50,
+      "contentFile": "lesson-2.json",
+      "status": "done"
+    },
+    {
+      "id": 3,
+      "code": "6.1.3",
+      "title": "ජෝර්ජ් කීට් ශිල්පියාගේ නිර්මාණ අගයමු",
+      "pdfStartPage": 55,
+      "contentFile": null,
+      "status": "pending"
+    },
+    {
+      "id": 4,
+      "code": "6.1.4",
+      "title": "ඩේවිඩ් පේන්ටර් ශිල්පියාගේ නිර්මාණ අගයමු",
+      "pdfStartPage": 59,
+      "contentFile": null,
+      "status": "pending"
+    },
+    {
+      "id": 5,
+      "code": "6.1.5",
+      "title": "තාවඩි මු. තුරෙයිසාමි ශිල්පියාගේ නිර්මාණ අගයමු",
+      "pdfStartPage": 63,
+      "contentFile": null,
+      "status": "pending"
+    },
+    {
+      "id": 6,
+      "code": "6.1.6",
+      "title": "පෙරියතම්බි සුබ්‍රමණියම් කලාකරුවාගේ නිර්මාණ අගයමු",
+      "pdfStartPage": 67,
+      "contentFile": null,
+      "status": "pending"
+    },
+    {
+      "id": 7,
+      "code": "6.2.1",
+      "title": "ලියනාඩෝ ඩාවින්චි (Lenardo da Vinci) ශිල්පියාගේ නිර්මාණ අගයමු",
+      "pdfStartPage": 72,
+      "contentFile": null,
+      "status": "pending"
+    },
+    {
+      "id": 8,
+      "code": "6.2.2",
+      "title": "මයිකල් ආන්ජලෝගේ (Michaelanjelo) නිර්මාණ අගයමු",
+      "pdfStartPage": 77,
+      "contentFile": null,
+      "status": "pending"
+    },
+    {
+      "id": 9,
+      "code": "6.2.3",
+      "title": "රෆායල් සන්සියෝ (Raphael Sanzio) ශිල්පියාගේ නිර්මාණ අගයමු",
+      "pdfStartPage": 82,
+      "contentFile": null,
+      "status": "pending"
+    },
+    {
+      "id": 10,
+      "code": "7.1.1",
+      "title": "ගඩලාදෙණිය විහාරය",
+      "pdfStartPage": 87,
+      "contentFile": null,
+      "status": "pending"
+    },
+    {
+      "id": 11,
+      "code": "7.1.2",
+      "title": "ලංකාතිලක විහාරය",
+      "pdfStartPage": 91,
+      "contentFile": null,
+      "status": "pending"
+    },
+    {
+      "id": 12,
+      "code": "7.1.3",
+      "title": "ඇම්බැක්කේ දේවාලය",
+      "pdfStartPage": 95,
+      "contentFile": null,
+      "status": "pending"
+    },
+    {
+      "id": 13,
+      "code": "7.2.1",
+      "title": "සෙංකඩගලපුර ශ්‍රී දළදා වරුණ",
+      "pdfStartPage": 100,
+      "contentFile": null,
+      "status": "pending"
+    },
+    {
+      "id": 14,
+      "code": "7.2.2",
+      "title": "මැදවල ටැම්පිට විහාරය",
+      "pdfStartPage": 103,
+      "contentFile": null,
+      "status": "pending"
+    },
+    {
+      "id": 15,
+      "code": "7.2.3",
+      "title": "දෙගල්දොරුව රජ මහා විහාරය",
+      "pdfStartPage": 106,
+      "contentFile": null,
+      "status": "pending"
+    },
+    {
+      "id": 16,
+      "code": "7.2.4",
+      "title": "දඹුලු ගලේ රූ වරුණා",
+      "pdfStartPage": 109,
+      "contentFile": null,
+      "status": "pending"
+    },
+    {
+      "id": 17,
+      "code": "7.3.1",
+      "title": "ඉන්දු නිම්න ශිෂ්ටාචාරයේ නිර්මාණ අගයමු",
+      "pdfStartPage": 113,
+      "contentFile": null,
+      "status": "pending"
+    },
+    {
+      "id": 18,
+      "code": "7.4.1",
+      "title": "ඊජිප්තු මූර්ති හා චිත්‍ර නිර්මාණ",
+      "pdfStartPage": 119,
+      "contentFile": null,
+      "status": "pending"
+    },
+    {
+      "id": 19,
+      "code": "7.4.2",
+      "title": "ග්‍රීක මූර්ති නිර්මාණ",
+      "pdfStartPage": 125,
+      "contentFile": null,
+      "status": "pending"
+    }
+  ]
+}

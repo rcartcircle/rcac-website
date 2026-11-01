@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, BookOpenText } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUp, BookOpenText } from "lucide-react";
 import { notFound } from "next/navigation";
 import { Navbar } from "@/components/sections/navbar";
 import { Footer } from "@/components/sections/footer";
 import {
   readSyllabusIndex,
+  readSyllabusIndexIfExists,
   readSyllabusLesson,
+  type SyllabusLesson,
   type SyllabusPoint,
   type SyllabusSection,
 } from "@/lib/art-syllabus";
@@ -136,6 +138,120 @@ function SectionContent({ section }: { section: SyllabusSection }) {
   );
 }
 
+async function LessonNavigation({
+  grade,
+  lessonId,
+  lesson,
+}: {
+  grade: string;
+  lessonId: string;
+  lesson: SyllabusLesson;
+}) {
+  const grades = await Promise.all(
+    [6, 7, 8, 9, 10, 11].map(async (gradeNumber) => ({
+      grade: gradeNumber,
+      syllabus: await readSyllabusIndexIfExists(`grade-${gradeNumber}`),
+    })),
+  );
+
+  const lessonGroups = (
+    <nav className="space-y-2">
+      {grades.map(({ grade: gradeNumber, syllabus: gradeSyllabus }) => {
+        const isCurrentGrade = grade === `grade-${gradeNumber}`;
+        const availableLessons = gradeSyllabus?.lessons.filter((item) => item.contentFile) ?? [];
+
+        return (
+          <details key={gradeNumber} open={isCurrentGrade} className="group">
+            <summary className="flex cursor-pointer list-none items-center justify-between rounded-lg px-3 py-2 text-sm font-semibold text-navy transition-colors hover:bg-secondary/50 [&::-webkit-details-marker]:hidden">
+              Grade {gradeNumber}
+              <span className="text-xs text-navy/40 transition-transform group-open:rotate-180">⌄</span>
+            </summary>
+            {availableLessons.length ? (
+              <div className="mt-1 space-y-1 border-l border-gold/30 pl-3">
+                {availableLessons.map((item) => {
+                  const isCurrentLesson = isCurrentGrade && `lesson-${item.id}` === lessonId;
+
+                  return (
+                    <Link
+                      key={item.id}
+                      href={`/chithra-akura/art-syllabus/grade-${gradeNumber}/lesson-${item.id}`}
+                      aria-current={isCurrentLesson ? "page" : undefined}
+                      className={`block rounded-md px-3 py-2 text-xs leading-5 transition-colors ${
+                        isCurrentLesson
+                          ? "bg-gold/15 font-semibold text-navy"
+                          : "text-navy/60 hover:bg-secondary/50 hover:text-gold"
+                      }`}
+                    >
+                      <span className="mr-2 text-[10px] font-semibold tracking-wider text-gold">
+                        {String(item.id).padStart(2, "0")}
+                      </span>
+                      {item.title}
+                    </Link>
+                  );
+                })}
+              </div>
+            ) : (
+              <p className="px-3 pb-2 pt-1 text-xs italic text-navy/40">Lessons coming soon</p>
+            )}
+          </details>
+        );
+      })}
+    </nav>
+  );
+
+  const contents = (
+    <nav className="mt-4 space-y-1 border-l-2 border-gold/25 pl-3">
+      {lesson.sections.map((section, index) => (
+        <a
+          key={section.id}
+          href={`#${section.id}`}
+          className="flex gap-2 rounded-md px-2 py-2 text-xs leading-5 text-navy/65 transition-colors hover:bg-gold/10 hover:text-gold"
+        >
+          <span className="font-semibold text-gold/70">{String(index + 1).padStart(2, "0")}</span>
+          <span>{section.heading}</span>
+        </a>
+      ))}
+    </nav>
+  );
+
+  return (
+    <>
+      <details className="mb-8 border border-border bg-card lg:hidden">
+        <summary className="flex cursor-pointer list-none items-center justify-between px-5 py-4 text-sm font-semibold text-navy [&::-webkit-details-marker]:hidden">
+          <span className="flex items-center gap-2"><BookOpenText className="h-4 w-4 text-gold" /> Browse lessons</span>
+          <span className="text-xs text-navy/45">Tap to open ⌄</span>
+        </summary>
+        <div className="border-t border-border p-4">{lessonGroups}</div>
+      </details>
+      <details className="mb-8 border border-border bg-card lg:hidden">
+        <summary className="flex cursor-pointer list-none items-center justify-between px-5 py-4 text-sm font-semibold text-navy [&::-webkit-details-marker]:hidden">
+          <span className="flex items-center gap-2"><BookOpenText className="h-4 w-4 text-gold" /> On this lesson</span>
+          <span className="text-xs text-navy/45">Jump to section ⌄</span>
+        </summary>
+        <div className="border-t border-border p-4">{contents}</div>
+      </details>
+
+      <aside className="hidden h-fit gap-4 lg:sticky lg:top-24 lg:grid lg:grid-cols-[1.2fr_1fr]">
+      <div className="border border-border bg-card p-5">
+        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-gold">
+          <BookOpenText className="h-4 w-4" />
+          Lessons
+        </div>
+        <div className="mt-4">{lessonGroups}</div>
+      </div>
+
+      <div className="border border-border bg-card p-5">
+        <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-gold">
+          <BookOpenText className="h-4 w-4" />
+          On this lesson
+        </div>
+        {contents}
+      </div>
+      </aside>
+    </>
+  );
+}
+
 export default async function SyllabusLessonPage({
   params,
 }: {
@@ -161,7 +277,7 @@ export default async function SyllabusLessonPage({
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Navbar />
-      <header className="relative overflow-hidden bg-navy px-4 pb-16 pt-32 text-cream md:pt-40">
+      <header id="top" className="relative overflow-hidden bg-navy px-4 pb-16 pt-32 text-cream md:pt-40">
         <div className="absolute -right-20 -top-24 h-72 w-72 rounded-full border border-gold/20" />
         <div className="relative mx-auto max-w-5xl">
           <Link href={`/chithra-akura/art-syllabus/${grade}`} className="inline-flex items-center gap-2 text-sm text-gold transition-colors hover:text-cream"><ArrowLeft className="h-4 w-4" /> Grade {lesson.grade}</Link>
@@ -170,12 +286,9 @@ export default async function SyllabusLessonPage({
         </div>
       </header>
 
-      <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 md:py-16">
-        <div className="grid gap-12 lg:grid-cols-[15rem_minmax(0,1fr)]">
-          <aside className="h-fit border border-border bg-card p-5 lg:sticky lg:top-24">
-            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-gold"><BookOpenText className="h-4 w-4" /> Contents</div>
-            <nav className="mt-5 space-y-3 text-sm text-navy/70">{lesson.sections.map((section) => <a key={section.id} href={`#${section.id}`} className="block transition-colors hover:text-gold">{section.heading}</a>)}</nav>
-          </aside>
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-16">
+        <div className="grid gap-12 lg:grid-cols-[28rem_minmax(0,1fr)]">
+          <LessonNavigation grade={grade} lessonId={lessonId} lesson={lesson} />
           <article className="space-y-10">{lesson.sections.map((section) => <SectionContent key={section.id} section={section} />)}</article>
         </div>
 
@@ -184,6 +297,13 @@ export default async function SyllabusLessonPage({
           {nextLesson?.contentFile ? <Link href={`/chithra-akura/art-syllabus/${grade}/lesson-${nextLesson.id}`} className="group border border-border bg-card p-5 text-right"><span className="text-xs uppercase tracking-[0.18em] text-navy/45">Next lesson</span><span className="mt-2 flex items-center justify-end gap-2 font-semibold text-navy group-hover:text-gold">{nextLesson.title}<ArrowRight className="h-4 w-4" /></span></Link> : null}
         </nav>
       </div>
+      <a
+        href="#top"
+        aria-label="Back to top"
+        className="fixed bottom-6 right-6 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-gold text-navy shadow-lg shadow-navy/20 transition-transform hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 md:bottom-8 md:right-8"
+      >
+        <ArrowUp className="h-5 w-5" />
+      </a>
       <Footer />
     </main>
   );
