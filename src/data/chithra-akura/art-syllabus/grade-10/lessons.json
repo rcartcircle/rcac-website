@@ -23,80 +23,80 @@
       "code": "6.1.3",
       "title": "ජෝර්ජ් කීට් ශිල්පියාගේ නිර්මාණ අගයමු",
       "pdfStartPage": 55,
-      "contentFile": null,
-      "status": "pending"
+      "contentFile": "lesson-3.json",
+      "status": "done"
     },
     {
       "id": 4,
       "code": "6.1.4",
       "title": "ඩේවිඩ් පේන්ටර් ශිල්පියාගේ නිර්මාණ අගයමු",
       "pdfStartPage": 59,
-      "contentFile": null,
-      "status": "pending"
+      "contentFile": "lesson-4.json",
+      "status": "done"
     },
     {
       "id": 5,
       "code": "6.1.5",
       "title": "තාවඩි මු. තුරෙයිසාමි ශිල්පියාගේ නිර්මාණ අගයමු",
       "pdfStartPage": 63,
-      "contentFile": null,
-      "status": "pending"
+      "contentFile": "lesson-5.json",
+      "status": "done"
     },
     {
       "id": 6,
       "code": "6.1.6",
       "title": "පෙරියතම්බි සුබ්‍රමණියම් කලාකරුවාගේ නිර්මාණ අගයමු",
       "pdfStartPage": 67,
-      "contentFile": null,
-      "status": "pending"
+      "contentFile": "lesson-6.json",
+      "status": "done"
     },
     {
       "id": 7,
       "code": "6.2.1",
       "title": "ලියනාඩෝ ඩාවින්චි (Lenardo da Vinci) ශිල්පියාගේ නිර්මාණ අගයමු",
       "pdfStartPage": 72,
-      "contentFile": null,
-      "status": "pending"
+      "contentFile": "lesson-7.json",
+      "status": "done"
     },
     {
       "id": 8,
       "code": "6.2.2",
       "title": "මයිකල් ආන්ජලෝගේ (Michaelanjelo) නිර්මාණ අගයමු",
       "pdfStartPage": 77,
-      "contentFile": null,
-      "status": "pending"
+      "contentFile": "lesson-8.json",
+      "status": "done"
     },
     {
       "id": 9,
       "code": "6.2.3",
       "title": "රෆායල් සන්සියෝ (Raphael Sanzio) ශිල්පියාගේ නිර්මාණ අගයමු",
       "pdfStartPage": 82,
-      "contentFile": null,
-      "status": "pending"
+      "contentFile": "lesson-9.json",
+      "status": "done"
     },
     {
       "id": 10,
       "code": "7.1.1",
       "title": "ගඩලාදෙණිය විහාරය",
       "pdfStartPage": 87,
-      "contentFile": null,
-      "status": "pending"
+      "contentFile": "lesson-10.json",
+      "status": "done"
     },
     {
       "id": 11,
       "code": "7.1.2",
       "title": "ලංකාතිලක විහාරය",
       "pdfStartPage": 91,
-      "contentFile": null,
-      "status": "pending"
+      "contentFile": "lesson-11.json",
+      "status": "done"
     },
     {
       "id": 12,
       "code": "7.1.3",
       "title": "ඇම්බැක්කේ දේවාලය",
       "pdfStartPage": 95,
-      "contentFile": null,
-      "status": "pending"
+      "contentFile": "lesson-12.json",
+      "status": "done"
     },
     {
       "id": 13,

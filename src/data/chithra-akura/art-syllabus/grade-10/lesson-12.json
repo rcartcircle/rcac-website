@@ -1,0 +1,135 @@
+{
+  "grade": 10,
+  "id": 12,
+  "code": "7.1.3",
+  "title": "ඇම්බැක්කේ දේවාලය",
+  "sections": [
+    {
+      "id": "profile",
+      "heading": "ඇම්බැක්කේ දේවාලය",
+      "images": [
+        "/assets/chithra-akura/art-syllabus/grade-10/lesson-12/7-1-3-ambekke-dewalaya.jpg",
+        "/assets/chithra-akura/art-syllabus/grade-10/lesson-12/7-1-3-madol-kurupawa.jpg"
+      ],
+      "imageCaptions": {
+        "7-1-3-ambekke-dewalaya.jpg": "ඇම්බැක්කේ දේවාලය",
+        "7-1-3-madol-kurupawa.jpg": "මඩොල් කුරුපාව"
+      },
+      "points": [
+        "ගම්පොළ යුගයේ ඉදිවූ ඇම්බැක්ක දේවාලය මහනුවර දිස්ත්‍රික්කයේ උඩුනුවර මැද පළාත කෝරළයේ පිහිටා ඇත.",
+        "14 වන ශත වර්ෂයේ රජ කළ තුන් වන වික්‍රමබාහු රජ දවස දෙල්මඩ මුලාචාරී සහ ඔහුගේ ගෝලයින් විසින් මෙම දේවාලයේ නිර්මාණ කටයුතු කර ඇත.",
+        "ජනප්‍රවාදයේ එන පරිදි බෙර වයන්නෙකු දුටු සිහිනයක ප්‍රතිඵලයක් ලෙස කතරගම දෙවියන් උදෙසා ඇම්බැක්ක දේවාලය නිර්මාණය කළ බව සඳහන් වේ.",
+        "ඇම්බැක්ක දේවාලයේ සුවිශේෂ වූ පියස්ස, පරාල 26ක් එක් ලී ඇණයකට සම්බන්ධ කර නිර්මාණය කර ඇති ගෘහ නිර්මාණාත්මක අංගය මඩොල් කුරුපාව නමින් හඳුනවයි. මෙය හෙළ කලාකරුවාගේ ගෘහ නිර්මාණ ශිල්පයේ විශිෂ්ටත්වය පෙන්නුම් කරන්නකි.",
+        "ඇම්බැක්ක දේවාලයේ වාස්තු විද්‍යාත්මක සැලැස්ම වාහල්කඩ මණ්ඩපය, දිග්ගෙය, ගර්භ ගෘහය යන අංගවලින් සමන්විත වේ. වාහල්කඩ මණ්ඩපයෙහි හා දිග්ගෙයි ඇති ලී කණු මත කැටයම් නිර්මාණ දැක ගත හැකි ය.",
+        {
+          "text": "වාහල්කඩ මණ්ඩපය:",
+          "subPoints": [
+            "මෙහි ලී කණු 10 කි.",
+            "සැම කණුවක ම සිවිරුස් පනේල සතර බැගින් දක්නට ඇත. ඒ අනුව පනේල කැටයම් 40කි."
+          ]
+        },
+        {
+          "text": "දිග්ගෙය :",
+          "subPoints": [
+            "මෙහි ලී කණු 32 කි. සැම කණුවකම සිවිරුස් පනේල සතර බැගින් ඇත.",
+            "මෙහි කැටයම් සංඛ්‍යාව 128 කි."
+          ]
+        },
+        "ඇම්බැක්ක දේවාලයේ ලී කැටයම් ගම්මාලු හා පිහිඹියා දැවයෙන් අල්ප උන්නත නෙළීමේ ශිල්ප ක්‍රමයට නිර්මාණය කර ඇත.",
+        {
+          "text": "ප්‍රධාන තේමා 5ක් යටතේ කැටයම් නිර්මාණ හඳුනාගත හැකි ය.",
+          "subPoints": [
+            "1. කල්පිත සත්ත්ව මෝස්තර",
+            "2. සත්ත්ව මෝස්තර",
+            "3. ජන ජීවිතය හා සම්බන්ධ කැටයම්",
+            "4. වාටි මෝස්තර (ලීස්තර )",
+            "5. මල්කම් හා ලියකම්"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kalpitha-saththwa-mosthara",
+      "heading": "කල්පිත සත්ත්ව මෝස්තර",
+      "images": [
+        "/assets/chithra-akura/art-syllabus/grade-10/lesson-12/7-1-3-herunda-pakshiya.jpg",
+        "/assets/chithra-akura/art-syllabus/grade-10/lesson-12/7-1-3-kinduriya.jpg",
+        "/assets/chithra-akura/art-syllabus/grade-10/lesson-12/7-1-3-hansa-puttuwa.jpg",
+        "/assets/chithra-akura/art-syllabus/grade-10/lesson-12/7-1-3-vrushabha-kunjaraya.jpg",
+        "/assets/chithra-akura/art-syllabus/grade-10/lesson-12/7-1-3-hansaya.jpg",
+        "/assets/chithra-akura/art-syllabus/grade-10/lesson-12/7-1-3-sinhaya.jpg"
+      ],
+      "imageCaptions": {
+        "7-1-3-herunda-pakshiya.jpg": "හේරුණ්ඩ පක්ෂියා",
+        "7-1-3-kinduriya.jpg": "කිඳුරිය",
+        "7-1-3-hansa-puttuwa.jpg": "හංස පූට්ටුව",
+        "7-1-3-vrushabha-kunjaraya.jpg": "වෘෂභ කුඤ්ජරය",
+        "7-1-3-hansaya.jpg": "හංසයා",
+        "7-1-3-sinhaya.jpg": "සිංහයා"
+      },
+      "points": [
+        {
+          "text": "පාරම්පරික සිංහල සැරසිලි මෝස්තර අතර දැකිය හැකි සුවිශේෂී කල්පිත මෝස්තර නිර්මාණ බොහොමයක් ඇම්බැක්ක දේවාලයේ පනේල ලී කැටයම් අතර දැක ගත හැකි ය. පහතින් දැක්වෙන්නේ කලාත්මක ලක්ෂණයන්ගෙන් යුතු කල්පිත හා සත්ත්ව නිර්මාණ කිහිපයකි.",
+          "subPoints": [
+            "හේරුණ්ඩ පක්ෂියා",
+            "ඇත්කඳ ලිහිණියා",
+            "සැරපෙන්දියා",
+            "වෘෂභ කුංඤ්ජය",
+            "කිඳුරු රූපය",
+            "නාරිලතා",
+            "හංස පූට්ටුව",
+            "සිංහයා"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jana-jeewithaya-ha-sambandha-katayam",
+      "heading": "ජන ජීවිතය හා සම්බන්ධ කැටයම්",
+      "images": [
+        "/assets/chithra-akura/art-syllabus/grade-10/lesson-12/7-1-3-nalagana.jpg",
+        "/assets/chithra-akura/art-syllabus/grade-10/lesson-12/7-1-3-daruwata-kiri-powana-mawa.jpg",
+        "/assets/chithra-akura/art-syllabus/grade-10/lesson-12/7-1-3-mallawa-poraya.jpg",
+        "/assets/chithra-akura/art-syllabus/grade-10/lesson-12/7-1-3-wideshiya-hewaya.jpg",
+        "/assets/chithra-akura/art-syllabus/grade-10/lesson-12/7-1-3-deshiya-hewaya.jpg",
+        "/assets/chithra-akura/art-syllabus/grade-10/lesson-12/7-1-3-raban-wayanna.jpg"
+      ],
+      "imageCaptions": {
+        "7-1-3-nalagana.jpg": "නළඟන",
+        "7-1-3-daruwata-kiri-powana-mawa.jpg": "දරුවාට කිරි පොවන මව",
+        "7-1-3-mallawa-poraya.jpg": "මල්ලව පොරය",
+        "7-1-3-wideshiya-hewaya.jpg": "විදේශීය හේවායා",
+        "7-1-3-deshiya-hewaya.jpg": "දේශීය හේවායා",
+        "7-1-3-raban-wayanna.jpg": "රබන් වයන්නා"
+      },
+      "points": [
+        {
+          "text": "ඇම්බැක්ක දේවාල ලී කැටයම් අතර සුවිශේෂී නිර්මාණ වශයෙන් සැලකෙනුයේ සමකාලීන සමාජ ජීවිතය සම්බන්ධ අවස්ථා නිරූපණය කරන කැටයම් ය. පහත සඳහන් වන එම නිර්මාණ කිහිපයකි.",
+          "subPoints": [
+            "රබන් වයන්නා",
+            "අශ්වාරෝහකයා",
+            "හේවායා",
+            "මල්ලව පොරය",
+            "නළඟන",
+            "දරුවාට කිරි පොවන මව"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wati-mosthara",
+      "heading": "වාටි මෝස්තර (ලීස්තර)",
+      "images": [
+        "/assets/chithra-akura/art-syllabus/grade-10/lesson-12/7-1-3-nelum-pekada.jpg",
+        "/assets/chithra-akura/art-syllabus/grade-10/lesson-12/7-1-3-liyakam-mosthara.jpg"
+      ],
+      "imageCaptions": {
+        "7-1-3-nelum-pekada.jpg": "නෙළුම - පේකඩ නිර්මාණයකි",
+        "7-1-3-liyakam-mosthara.jpg": "ලියකම් මෝස්තරයක්"
+      },
+      "points": [
+        "ඉහත දක්වන ලද සියලු නිර්මාණ පනේල මධ්‍යයේ කැටයම් වූ අතර පනේල වටා වූ වාටි මෝස්තර (ලීස්තර) සඳහා නිර්ජීවී හා උද්භිත සැරසිලි මෝස්තර යොදා ඇත. මේ සඳහා අරිම්බුව, ගල් බිංදුව හා කුන්දිරික්කන් වැනි නිර්ජීවී මෝස්තර ද, නෙළුම් මල් හා ලියවැල් උද්භිත මෝස්තර ද නිර්මාණ ලෙස භාවිත කර ඇත."
+      ]
+    }
+  ]
+}
