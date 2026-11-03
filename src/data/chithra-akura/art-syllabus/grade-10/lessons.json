@@ -103,32 +103,32 @@
       "code": "7.2.1",
       "title": "සෙංකඩගලපුර ශ්‍රී දළදා වරුණ",
       "pdfStartPage": 100,
-      "contentFile": null,
-      "status": "pending"
+      "contentFile": "lesson-13.json",
+      "status": "done"
     },
     {
       "id": 14,
       "code": "7.2.2",
       "title": "මැදවල ටැම්පිට විහාරය",
       "pdfStartPage": 103,
-      "contentFile": null,
-      "status": "pending"
+      "contentFile": "lesson-14.json",
+      "status": "done"
     },
     {
       "id": 15,
       "code": "7.2.3",
       "title": "දෙගල්දොරුව රජ මහා විහාරය",
       "pdfStartPage": 106,
-      "contentFile": null,
-      "status": "pending"
+      "contentFile": "lesson-15.json",
+      "status": "done"
     },
     {
       "id": 16,
       "code": "7.2.4",
       "title": "දඹුලු ගලේ රූ වරුණා",
       "pdfStartPage": 109,
-      "contentFile": null,
-      "status": "pending"
+      "contentFile": "lesson-16.json",
+      "status": "done"
     },
     {
       "id": 17,
