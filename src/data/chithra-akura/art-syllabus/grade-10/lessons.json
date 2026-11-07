@@ -135,16 +135,16 @@
       "code": "7.3.1",
       "title": "ඉන්දු නිම්න ශිෂ්ටාචාරයේ නිර්මාණ අගයමු",
       "pdfStartPage": 113,
-      "contentFile": null,
-      "status": "pending"
+      "contentFile": "lesson-17.json",
+      "status": "done"
     },
     {
       "id": 18,
       "code": "7.4.1",
       "title": "ඊජිප්තු මූර්ති හා චිත්‍ර නිර්මාණ",
       "pdfStartPage": 119,
-      "contentFile": null,
-      "status": "pending"
+      "contentFile": "lesson-18.json",
+      "status": "done"
     },
     {
       "id": 19,
